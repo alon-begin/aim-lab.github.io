@@ -28,67 +28,106 @@
 			<div class="wrap-contact3">
 				<form class="contact3-form validate-form">
 					<span class="contact3-form-title">
-						Contact Us
+						OxyDOSA webapp
 					</span>
 
-					<div class="wrap-contact3-form-radio">
-						<div class="contact3-form-radio m-r-42">
-							<input class="input-radio3" id="radio1" type="radio" name="choice" value="say-hi" checked="checked">
-							<label class="label-radio3" for="radio1">
-								Say Hi
-							</label>
-						</div>
+					
 
-						<div class="contact3-form-radio">
-							<input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote">
-							<label class="label-radio3" for="radio2">
-								Get a Quote
-							</label>
-						</div>
-					</div>
-
-					<div class="wrap-input3 validate-input" data-validate="Name is required">
-						<input class="input3" type="text" name="name" placeholder="Your Name">
+					<div class="wrap-input3 validate-input" data-validate="ODI is required">
+						<input class="input3" type="text" name="odi" placeholder="ODI">
 						<span class="focus-input3"></span>
 					</div>
 
-					<div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input3" type="text" name="email" placeholder="Your Email">
+					<div class="wrap-input3 validate-input" data-validate="T90 is required">
+						<input class="input3" type="text" name="t90" placeholder="T90">
 						<span class="focus-input3"></span>
 					</div>
 
-					<div class="wrap-input3 input3-select">
-						<div>
-							<select class="selection-2" name="service">
-								<option>Needed Services</option>
-								<option>eCommerce Bussiness</option>
-								<option>UI/UX Design</option>
-								<option>Online Services</option>
-							</select>
-						</div>
+					<div class="wrap-input3 validate-input" data-validate="MSpO2 is required">
+						<input class="input3" type="text" name="mspo2" placeholder="MSpO2">
 						<span class="focus-input3"></span>
 					</div>
 
-					<div class="wrap-input3 input3-select">
-						<div>
-							<select class="selection-2" name="budget">
-								<option>Budget</option>
-								<option>1500 $</option>
-								<option>2000 $</option>
-								<option>3000 $</option>
-							</select>
-						</div>
+					<div class="wrap-input3 validate-input" data-validate="SpO2 Nadir is required">
+						<input class="input3" type="text" name="spo2-nadir" placeholder="SpO2 Nadir">
 						<span class="focus-input3"></span>
 					</div>
 
-					<div class="wrap-input3 validate-input" data-validate = "Message is required">
-						<textarea class="input3" name="message" placeholder="Your Message"></textarea>
+					<div>
+						<select class="selection-2" name="blood-pressure">
+							<option>High blood pressure</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+					</div>
+
+					<div>
+						<select class="selection-2" name="gender">
+							<option>Gender</option>
+							<option>Male</option>
+							<option>Female</option>
+						</select>
+					</div>
+
+					<div>
+						<select class="selection-2" name="snoring">
+							<option>Snoring Level</option>
+							<option>As loud as breathing</option>
+							<option>As loud as talking</option>
+							<option>Louder than talking</option>
+							<option>Can be heard in another room</option>
+
+						</select>
+					</div>
+
+					<div>
+						<select class="selection-2" name="fatigue">
+							<option>Freq. daytime fatigue</option>
+							<option>Never</option>
+							<option>1-2x/Month</option>
+							<option>1-2x/Week</option>
+							<option>3-4x/Week</option>
+							<option>Daily</option>
+						</select>
+					</div>
+
+					<div>
+						<select class="selection-2" name="stop-breathing">
+							<option>Freq. observed stop breathing</option>
+							<option>Never</option>
+							<option>1-2x/Month</option>
+							<option>1-2x/Week</option>
+							<option>3-4x/Week</option>
+							<option>Daily</option>
+						</select>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Body mass index is required">
+						<input class="input3" type="text" name="mass-index" placeholder="Body mass index">
 						<span class="focus-input3"></span>
 					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Age is required">
+						<input class="input3" type="text" name="age" placeholder="Age">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Age is required">
+						<input class="input3" type="text" name="neck" placeholder="Neck circumference">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div>
+						<select class="selection-2" name="guideline">
+							<option>Select Guideline</option>
+							<option>AHIR2017</option>
+						</select>
+					</div>
+
 
 					<div class="container-contact3-form-btn">
 						<button class="contact3-form-btn">
-							Submit
+							Compute Score
 						</button>
 					</div>
 				</form>
