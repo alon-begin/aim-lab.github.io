@@ -150,15 +150,16 @@ iframe {
 
 .wrap-contact3 {
   width: 500px;
-  background: #80c64a;
-  background: -webkit-linear-gradient(45deg, #56ab2f, #a8e063);
-  background: -o-linear-gradient(45deg, #56ab2f, #a8e063);
-  background: -moz-linear-gradient(45deg, #56ab2f, #a8e063);
-  background: linear-gradient(45deg, #56ab2f, #a8e063);
+  background: #5e00ff80;
+  background: -webkit-linear-gradient(45deg, #bd292994, #5e00ff80);
+  background: -o-linear-gradient(45deg, #bd292994, #5e00ff80);
+  background: -moz-linear-gradient(45deg, #bd292994, #5e00ff80);
+  background: linear-gradient(45deg, #bd292994, #5e00ff80);
   border-radius: 10px;
   overflow: hidden;
   padding: 72px 55px 65px 55px;
 }
+
 
 
 /*------------------------------------------------------------------
