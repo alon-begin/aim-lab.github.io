@@ -1,86 +1,117 @@
+jQuery(document).ready(function($) {
 
-(function ($) {
-    "use strict";
+    'use strict';
 
 
-    /*==================================================================
-    [ Focus Contact2 ]*/
-    $('.input3').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
-                $(this).addClass('has-val');
+        $(".Modern-Slider").slick({
+            autoplay:true,
+            speed:1000,
+            slidesToShow:1,
+            slidesToScroll:1,
+            pauseOnHover:false,
+            dots:true,
+            fade: true,
+            pauseOnDotsHover:true,
+            cssEase:'linear',
+           // fade:true,
+            draggable:false,
+            prevArrow:'<button class="PrevArrow"></button>',
+            nextArrow:'<button class="NextArrow"></button>', 
+          });
+
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+
+
+        $('.tabgroup > div').hide();
+            $('.tabgroup > div:first-of-type').show();
+            $('.tabs a').click(function(e){
+              e.preventDefault();
+                var $this = $(this),
+                tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+                others = $this.closest('li').siblings().children('a'),
+                target = $this.attr('href');
+            others.removeClass('active');
+            $this.addClass('active');
+            $(tabgroup).children('div').hide();
+            $(target).show();
+          
+        })
+
+
+
+        $(".box-video").click(function(){
+          $('iframe',this)[0].src += "&amp;autoplay=1";
+          $(this).addClass('open');
+        });
+
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:30,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:2,
+                    nav:false
+                },
+                1000:{
+                    items:3,
+                    nav:true,
+                    loop:false
+                }
             }
-            else {
-                $(this).removeClass('has-val');
-            }
-        })    
-    })
-            
+        })
 
-    /*==================================================================
-    [ Chose Radio ]*/
-    $("#radio1").on('change', function(){
-        if ($(this).is(":checked")) {
-            $('.input3-select').slideUp(300);
-        }
-    });
 
-    $("#radio2").on('change', function(){
-        if ($(this).is(":checked")) {
-            $('.input3-select').slideDown(300);
-        }
-    });
+
+        var contentSection = $('.content-section, .main-banner');
+        var navigation = $('nav');
         
-  
-    
-    /*==================================================================
-    [ Validate ]*/
-    var name = $('.validate-input input[name="name"]');
-    var email = $('.validate-input input[name="email"]');
-    var message = $('.validate-input textarea[name="message"]');
-
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        if($(name).val().trim() == ''){
-            showValidate(name);
-            check=false;
+        //when a nav link is clicked, smooth scroll to the section
+        navigation.on('click', 'a', function(event){
+            event.preventDefault(); //prevents previous event
+            smoothScroll($(this.hash));
+        });
+        
+        //update navigation on scroll...
+        $(window).on('scroll', function(){
+            updateNavigation();
+        })
+        //...and when the page starts
+        updateNavigation();
+        
+        /////FUNCTIONS
+        function updateNavigation(){
+            contentSection.each(function(){
+                var sectionName = $(this).attr('id');
+                var navigationMatch = $('nav a[href="#' + sectionName + '"]');
+                if( ($(this).offset().top - $(window).height()/2 < $(window).scrollTop()) &&
+                      ($(this).offset().top + $(this).height() - $(window).height()/2 > $(window).scrollTop()))
+                    {
+                        navigationMatch.addClass('active-section');
+                    }
+                else {
+                    navigationMatch.removeClass('active-section');
+                }
+            });
+        }
+        function smoothScroll(target){
+            $('body,html').animate({
+                scrollTop: target.offset().top
+            }, 800);
         }
 
 
-        if($(email).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-            showValidate(email);
-            check=false;
-        }
-
-        if($(message).val().trim() == ''){
-            showValidate(message);
-            check=false;
-        }
-
-        return check;
-    });
+        $('.button a[href*=#]').on('click', function(e) {
+          e.preventDefault();
+          $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top -0 }, 500, 'linear');
+        });
 
 
-    $('.validate-form .input3').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-       });
-    });
-
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
-    
-    
-
-})(jQuery);
+});
