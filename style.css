@@ -112,6 +112,10 @@ ul {
     margin: 0;
     padding: 0; }
 
+.img-logo{
+  max-width: 80%;
+  height: auto; }
+
 .bg-overlay {
   position: relative;
   z-index: 1; }
@@ -1326,8 +1330,8 @@ input:focus {
   text-align: center; }
   .single-service-area .service-icon {
     background-color: #e7f2fd;
-    width: 145px;
-    height: 110px;
+    width: 190px;
+    height: 180px;
     font-size: 42px;
     color: #303030;
     text-align: center;
@@ -1577,7 +1581,6 @@ input:focus {
 
 .comment_area {
   border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
   padding-top: 50px;
   padding-bottom: 50px; }
   .comment_area .title {
