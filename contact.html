@@ -141,31 +141,31 @@
                         <div class="contact-heading mb-50">
                             <h4>Thank you for your interest. <br>Please fill out the form below to inquire about our work in Digital.</h4>
                         </div>
-                        <form action="#" method="post">
+                        <form name="gform" id="gform" encrypt"text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfpwnjRXH0n020oFD8fyM79Mr03FQgL3FBlhE4Sd-EqoBmf_Q/formResponse?usp=pp_url&entry.1365318987=aimlab.name&entry.1455381171=aimlab.email&entry.1951473634=aimlab.phone&entry.1890196220=aimlab.org&entry.540137911=aimlab.messege" target="hidden_iframe" onsubmit="submitted=true;">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="full-name" placeholder="Name">
+                                        <input type="text" class="form-control mb-30" name="entry.1365318987" id="entry.1365318987" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control mb-30" name="email" placeholder="Email">
+                                        <input type="email" class="form-control mb-30" name="entry.1455381171" id="entry.1455381171" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="full-name" placeholder="Phone">
+                                        <input type="text" class="form-control mb-30" name="entry.1951473634" id="entry.1951473634" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="email" placeholder="Organization">
+                                        <input type="text" class="form-control mb-30" name="entry.1890196220" id="entry.1890196220" placeholder="Organization">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control mb-30" name="message" rows="8" cols="80" placeholder="Message"></textarea>
+                                        <textarea class="form-control mb-30" name="entry.540137911" id="entry.540137911" rows="8" cols="80" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -173,6 +173,8 @@
                                 </div>
                             </div>
                         </form>
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
                     </div>
                 </div>
 
@@ -185,7 +187,7 @@
                                 Joachim A. Behar</h4>
                             <h6>Principal Investigator</h6>
                             <h3>(+972) 4 829 4125</h3>
-                            <h6>Technion Institute of Technology<br>jbehar@technion.ac.il</h6>
+                            <h6>Technion Israel Institute of Technology<br>jbehar@technion.ac.il</h6>
                         </div>
 
                         <!-- Single Sidebar Area -->
@@ -193,7 +195,7 @@
                             <h4>Ronen Barski</h4>
                             <h6>AIMLab. Manager</h6>
                             <h3></h3>
-                            <h6>Technion Institute of Technology<br>barski@technion.ac.il</h6>
+                            <h6>Technion Israel Institute of Technology<br>barski@technion.ac.il</h6>
                         </div>
                     </div>
                 </div>
@@ -240,6 +242,14 @@
     <script src="js/uza.bundle.js"></script>
     <!-- Active js -->
     <script src="js/default-assets/active.js"></script>
+
+    <script type="text/javascript">var submitted=false;</script>
+    <script type="text/javascript">
+        $('#gform').on('submit', function(e) {
+        $('#gform *').fadeOut(2000);
+        $('#gform').prepend('Your submission has been processed...');
+        });
+    </script>
 
 </body>
 
