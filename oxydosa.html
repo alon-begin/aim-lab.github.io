@@ -147,31 +147,32 @@
                             population sample of 887 individuals is provided bellow. Disclaimer here.
                         </div>
                         <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET" target="hidden_iframe" onsubmit="submitted=true;"> -->
-                        <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET">
+                        <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET"> -->
+                        <form name="oxydosa_form" id="oxydosa_form">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="odi" placeholder="ODI" value="14.44018137">
+                                        <input type="text" class="form-control mb-30" id="odi" placeholder="ODI" value="14.44018137">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="t90" placeholder="T90" value="0.002633415">
+                                        <input type="text" class="form-control mb-30" id="t90" placeholder="T90" value="0.002633415">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="mspo2" placeholder="MSpO2" value="94.32115935">
+                                        <input type="text" class="form-control mb-30" id="mspo2" placeholder="MSpO2" value="94.32115935">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="spo2-nadir" placeholder="SpO2 Nadir" value="91">
+                                        <input type="text" class="form-control mb-30" id="spo2Nadir" placeholder="SpO2 Nadir" value="91">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                         <div class="form-group">
-                                            <select class="form-control mb-30" name="blood-pressure">
+                                            <select class="form-control mb-30" id="bp">
                                                 <option>High blood pressure</option>
                                                 <option>Yes</option>
                                                 <option>No</option>
@@ -180,7 +181,7 @@
                                 </div>
                                 <div class="col-12">
                                         <div>
-                                            <select class="form-control mb-30" name="gender"> 
+                                            <select class="form-control mb-30" id="gender"> 
                                                 <option>Gender</option>
                                                 <option selected> Male</option>
                                                 <option>Female</option>
@@ -189,7 +190,7 @@
                                 </div>
                                 <div class="col-12">
                                         <div>
-                                            <select class="form-control mb-30" name="snoring">
+                                            <select class="form-control mb-30" id="snoring">
                                                 <option>Snoring Level</option>
                                                 <option selected>As loud as breathing</option>
                                                 <option>As loud as talking</option>
@@ -200,7 +201,7 @@
                                 </div>
                                 <div class="col-12">
                                         <div>
-                                            <select class="form-control mb-30" name="fatigue">
+                                            <select class="form-control mb-30" id="fatigue">
                                                 <option>Freq. daytime fatigue</option>
                                                 <option>Never</option>
                                                 <option selected>1-2x/Month</option>
@@ -212,7 +213,7 @@
                                 </div>
                                 <div class="col-12">
                                         <div>
-                                            <select class="form-control mb-30" name="stop-breathing">
+                                            <select class="form-control mb-30" id="sb">
                                                 <option>Freq. observed stop breathing</option>
                                                 <option selected>Never</option>
                                                 <option>1-2x/Month</option>
@@ -224,22 +225,22 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control mb-30" name="body-mass-index" placeholder="Body Mass Index" value="32.06">
+                                            <input type="text" class="form-control mb-30" id="bmi" placeholder="Body Mass Index" value="32.06">
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="age" placeholder="Age" value="34">
+                                        <input type="text" class="form-control mb-30" id="age" placeholder="Age" value="34">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="neck-circumference" placeholder="Neck Circumference" value="43">
+                                        <input type="text" class="form-control mb-30" id="nc" placeholder="Neck Circumference" value="43">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div>
-                                        <select class="form-control mb-30" name="guideline">
+                                        <select class="form-control mb-30" id="guideline">
                                             <option>Select Guideline</option>
                                             <option selected>AHIR2017</option>
 
@@ -248,6 +249,8 @@
                                 </div>
                                 <div class="col-12">
                                     <button class="btn uza-btn btn-3 mt-15">Compute Score</button>
+                                    <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()">Compute Score</button>
+                                    <h1 id="scoreResult">Score Result</h1>
                                 </div>
                                 
                                 <br><br>
@@ -307,13 +310,68 @@
     </script>
 
     <script type="text/javascript">
-   
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function(){
 
-        const serverResponse = document.getElementById("serverResponse");
-        serverResponse.innerHTML = this.responseText;
-        };
+   
+
+            function D(e){
+                var str, element = document.getElementById('e');
+
+                if (element != null) {
+                    str = element.value;
+                }
+                else {
+                    str = null;
+                }
+
+                return str
+            }
+
+
+            function requestScore(){
+
+                // var odi = D("odi").value;
+                // var t90 = D("t90").value;
+                // var mspo2 = D("mspo2").value;
+                // var spo2Nadir = D("spo2Nadir").value;
+                // var gender = D("gender").value;
+                // var snoring = D("snoring").value;
+                // var spo2Nadir = D("fatigue").value;
+                // var sb = D("sb").value;
+                // var bmi = D("bmi").value;
+                // var age = D("age").value;
+                // var sb = D("sb").value;
+                // var nc = D("nc").value;
+                // var method = D("method").value;
+
+                var odi = document.getElementById("odi").value;
+                var t90 = document.getElementById("t90").value;
+                var mspo2 = document.getElementById("mspo2").value;
+                var spo2Nadir = document.getElementById("spo2Nadir").value;
+                var gender = document.getElementById("gender").value;
+                var snoring = document.getElementById("snoring").value;
+                var spo2Nadir = document.getElementById("fatigue").value;
+                var sb = document.getElementById("sb").value;
+                var bmi = document.getElementById("bmi").value;
+                var age = document.getElementById("age").value;
+                var sb = document.getElementById("sb").value;
+                var nc = document.getElementById("nc").value;
+                var method = document.getElementById("guideline").value;
+               
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if(this.readyState == 4 && this.status == 200){
+                        document.getElementById("scoreResult").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.open("GET", "http://132.68.177.116/", true);
+                xhttp.send("odi="+odi+"t90="+t90+"mspo2="+mspo2+"spo2Nadir"+spo2Nadir+"gender"+gender
+                +"snoring"+snoring+"fatigue"+fatigue+"sb"+sb+"bmi"+bmi+"age"+age+"sb"+sb+"nc"+nc+"method");
+
+            }
+
+   
     
     </script>
     
