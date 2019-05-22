@@ -141,29 +141,29 @@
                 <div class="col-12 col-lg-8">
                     <div class="uza-contact-form mb-80">
                         <div class="contact-heading mb-50">
-                            <h4>This page is under Construction. Expected release: 15-06-2019. Please fill out the form below to inquire the score:</h4>
+                            <h4>This page is under Construction. Expected release: 15-06-2019. Usage is in "DEMO" mode:</h4>
                         </div>
-                        <!-- <form method="POST" action="http://the.other.server.com/script.php"></form> -->
-                        <form action="#" method="post">
+                        <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET" target="hidden_iframe" onsubmit="submitted=true;"> -->
+                        <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="odi" placeholder="ODI">
+                                        <input type="text" class="form-control mb-30" name="odi" placeholder="ODI" value="14.44018137">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control mb-30" name="t90" placeholder="T90">
+                                        <input type="text" class="form-control mb-30" name="t90" placeholder="T90" value="0.002633415">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="mspo2" placeholder="MSpO2">
+                                        <input type="text" class="form-control mb-30" name="mspo2" placeholder="MSpO2" value="94.32115935">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="spo2-nadir" placeholder="SpO2 Nadir">
+                                        <input type="text" class="form-control mb-30" name="spo2-nadir" placeholder="SpO2 Nadir" value="91">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -177,9 +177,9 @@
                                 </div>
                                 <div class="col-12">
                                         <div>
-                                            <select class="form-control mb-30" name="gender">
+                                            <select class="form-control mb-30" name="gender"> 
                                                 <option>Gender</option>
-                                                <option>Male</option>
+                                                <option selected> Male</option>
                                                 <option>Female</option>
                                             </select>
                                         </div>
@@ -188,7 +188,7 @@
                                         <div>
                                             <select class="form-control mb-30" name="snoring">
                                                 <option>Snoring Level</option>
-                                                <option>As loud as breathing</option>
+                                                <option selected>As loud as breathing</option>
                                                 <option>As loud as talking</option>
                                                 <option>Louder than talking</option>
                                                 <option>Can be heard in another room</option>
@@ -200,7 +200,7 @@
                                             <select class="form-control mb-30" name="fatigue">
                                                 <option>Freq. daytime fatigue</option>
                                                 <option>Never</option>
-                                                <option>1-2x/Month</option>
+                                                <option selected>1-2x/Month</option>
                                                 <option>1-2x/Week</option>
                                                 <option>3-4x/Week</option>
                                                 <option>Daily</option>
@@ -211,7 +211,7 @@
                                         <div>
                                             <select class="form-control mb-30" name="stop-breathing">
                                                 <option>Freq. observed stop breathing</option>
-                                                <option>Never</option>
+                                                <option selected>Never</option>
                                                 <option>1-2x/Month</option>
                                                 <option>1-2x/Week</option>
                                                 <option>3-4x/Week</option>
@@ -221,24 +221,24 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control mb-30" name="body-mass-index" placeholder="Body Mass Index">
+                                            <input type="text" class="form-control mb-30" name="body-mass-index" placeholder="Body Mass Index" value="32.06">
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" name="age" placeholder="Age">
+                                        <input type="text" class="form-control mb-30" name="age" placeholder="Age" value="34">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control mb-30" name="neck-circumference" placeholder="Neck Circumference">
+                                        <input type="text" class="form-control mb-30" name="neck-circumference" placeholder="Neck Circumference" value="43">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div>
                                         <select class="form-control mb-30" name="guideline">
                                             <option>Select Guideline</option>
-                                            <option>AHIR2017</option>
+                                            <option selected>AHIR2017</option>
 
                                         </select>
                                     </div>
@@ -248,6 +248,7 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
         </div>
@@ -283,6 +284,33 @@
     <script src="js/uza.bundle.js"></script>
     <!-- Active js -->
     <script src="js/default-assets/active.js"></script>
+
+    <script type="text/javascript">var submitted=false;</script>
+    <script type="text/javascript">
+        $('#oxydosa_form').on('submit', function(e) {
+        $('#oxydosa_form *').fadeOut(2000);
+        $('#oxydosa_form').prepend('Your Score...');
+        });
+
+      
+    </script>
+
+    <script type="text/javascript">
+   
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+
+        const serverResponse = document.getElementById("serverResponse");
+        serverResponse.innerHTML = this.responseText;
+        };
+    
+    </script>
+    
+    
+
+
+
+
 
 </body>
 
