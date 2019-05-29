@@ -147,8 +147,7 @@
                             population sample of 887 individuals is provided bellow. Disclaimer here.
                         </div>
                         <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET" target="hidden_iframe" onsubmit="submitted=true;"> -->
-                        <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET"> -->
-                        <form name="oxydosa_form" id="oxydosa_form">
+                        <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -299,15 +298,6 @@
     <!-- Active js -->
     <script src="js/default-assets/active.js"></script>
 
-    <script type="text/javascript">var submitted=false;</script>
-    <script type="text/javascript">
-        $('#oxydosa_form').on('submit', function(e) {
-        $('#oxydosa_form *').fadeOut(2000);
-        $('#oxydosa_form').prepend('Your Score...');
-        });
-
-      
-    </script>
 
     <script type="text/javascript">
 
@@ -358,16 +348,30 @@
                 var method = document.getElementById("guideline").value;
                
 
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if(this.readyState == 4 && this.status == 200){
-                        document.getElementById("scoreResult").innerHTML = this.responseText;
-                    }
-                };
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.open("GET", "http://132.68.177.116/", true);
-                xhttp.send("odi="+odi+"t90="+t90+"mspo2="+mspo2+"spo2Nadir"+spo2Nadir+"gender"+gender
-                +"snoring"+snoring+"fatigue"+fatigue+"sb"+sb+"bmi"+bmi+"age"+age+"sb"+sb+"nc"+nc+"method");
+                // var xhttp = new XMLHttpRequest();
+                // xhttp.onreadystatechange = function () {
+                //     if(this.readyState == 4 && this.status == 200){
+                //         document.getElementById("scoreResult").innerHTML = this.responseText;
+                //     }
+                // };
+                //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //xhttp.open('GET', 'http://132.68.177.116', true);
+               
+                //xhttp.send("odi="+odi+"t90="+t90+"mspo2="+mspo2+"spo2Nadir"+spo2Nadir+"gender"+gender
+                //+"snoring"+snoring+"fatigue"+fatigue+"sb"+sb+"bmi"+bmi+"age"+age+"sb"+sb+"nc"+nc+"method");
+
+                const Http = new XMLHttpRequest();
+                const url='http://132.68.177.116';
+                Http.open("POST", url);
+                Http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              
+                Http.send(encodeURIComponent("Hello World!"));
+
+
+                Http.onreadystatechange = (e) => {
+                console.log(Http.responseText)
+                }
+
 
             }
 
