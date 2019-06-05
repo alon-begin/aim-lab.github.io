@@ -154,7 +154,7 @@
                                 <div class="col-12">
                                         <div>
                                             <!-- <h5>Select Guideline</h5> -->
-                                            <select class="form-control mb-30" id="guideline" name="guideline">
+                                            <select class="form-control mb-30" id="guideline" name="guideline" required>
                                                 <option>Select Guideline</option>
                                                 <option>AHI17R</option>
                                                 <option>AHI17A</option>
@@ -166,6 +166,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-30" id="odi" name="odi" placeholder="ODI">
+                                        
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -183,7 +184,7 @@
                                         <input type="text" class="form-control mb-30" id="spo2Nadir" name="spo2Nadir" placeholder="SpO2 Nadir">
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-lg-6">
                                         <div class="form-group">
                                             <select class="form-control mb-30" id="hbp" name="hbp">
                                                 <option>High blood pressure</option>
@@ -192,16 +193,16 @@
                                             </select>
                                         </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-30" id="gender" name="gender"> 
                                                 <option>Gender</option>
-                                                <option> Male</option>
+                                                <option>Male</option>
                                                 <option>Female</option>
                                             </select>
                                         </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-30" id="snoring" name="snoring">
                                                 <option>Snoring Level</option>
@@ -212,7 +213,7 @@
                                             </select>
                                         </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-30" id="fatigue" name="fatigue">
                                                 <option>Freq. daytime fatigue</option>
@@ -224,7 +225,7 @@
                                             </select>
                                         </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-30" id="obs"  name="obs">
                                                 <option>Freq. observed stop breathing</option>
@@ -253,11 +254,19 @@
                                 </div>
                                 
                                 <div class="col-12">
-                                    <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
-                                    <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()">Compute Score</button>
-                                    <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Load Test Profile</button>
-                                    <h3 id="scoreResult">Score Result</h3>
+                                    
+                                    <div class="post-content text-center mb-30">
+                                        <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()">Compute Score</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Load Test Profile</button>
+                                        <h5 id="scoreResult"></h5>
+                                    </div>
+                                   
                                 </div>
+                                <br><br>
+                                
+                                
+                                
                                 
                                 <br><br>
                                 [1] Joachim A. Behar*, Niclas Palmius*, Qiao Li, Silverio Garbuio, Fabìola P. G Rizzatti, 
@@ -311,7 +320,7 @@
 
         function loadProfile(){
 
-            document.getElementById("guideline").selectedIndex = 4;
+            document.getElementById("guideline").selectedIndex = 1;
             document.getElementById("mspo2").value = 94.32115935; //SPO2_MEAN_TRT
             document.getElementById("spo2Nadir").value = 91; //SPO2_PERCENTILE_1_TRT
             document.getElementById("t90").value = 0.002633415; //SPO2_BELOW_90_TRT
@@ -354,7 +363,12 @@
             }
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("scoreResult").innerHTML = this.responseText;
+
+                resultString = this.responseText;
+                osa = resultString.slice(1,2);
+                prob = (resultString.slice(3,-1)*100).toPrecision(3);
+
+                document.getElementById("scoreResult").innerHTML = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
                 }
             };
             xhttp.open("POST", "https://132.68.177.116:80", true);
