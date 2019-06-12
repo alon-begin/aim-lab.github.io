@@ -374,12 +374,31 @@
                 }
             };
             //xhttp.open("POST", "https://132.68.177.116:80", true);
-            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/query", true);
-            //xhttp.open("POST", "http://127.0.0.1:5000/query", true);
+            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
+            //xhttp.open("POST", "http://127.0.0.1:5000/", true);
 
             
-            xhttp.send("?"+method+"?"+mspo2+"?"+spo2Nadir+"?"+t90+"?"+odi+"?"+snoring+"?"+fatigue
-            +"?"+obs+"?"+hbp+"?"+bmi+"?"+age+"?"+gender+"?"+nc);
+            var data = new FormData();
+            data.append('METHOD', method);
+            data.append('SPO2_MEAN_TRT', mspo2);
+            data.append('SPO2_PERCENTILE_1_TRT', spo2Nadir);
+            data.append('SPO2_BELOW_90_TRT', t90);
+            data.append('DESAT_INDEX_TRT_ALL', odi);
+            data.append('SB_RAW_SNORING_LEVEL', snoring);
+            data.append('SB_RAW_DAYTIME_FATIGUE', fatigue);
+            data.append('SB_RAW_FREQ_OBS_APNOEA', obs);
+            data.append('SB_SCORE_HIGH_BP', hbp);
+            data.append('SB_RAW_BMI', bmi);
+            data.append('SB_RAW_AGE', age);
+            data.append('SB_SCORE_GENDER', gender);
+            data.append('SB_RAW_NECK_CIRC', nc);
+        
+            xhttp.send(data);
+
+            //xhttp.send("?"+method+"?"+mspo2+"?"+spo2Nadir+"?"+t90+"?"+odi+"?"+snoring+"?"+fatigue
+            //+"?"+obs+"?"+hbp+"?"+bmi+"?"+age+"?"+gender+"?"+nc);
+
+
 
             event.preventDefault(); 
 
