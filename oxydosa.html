@@ -165,28 +165,30 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="odi" name="odi" placeholder="ODI">
+                                        <label for="odi">ODI</label>
+                                        <input type="text" class="form-control mb-30" id="odi" name="odi"  placeholder="odi" required>
                                         
                                     </div>
                                 </div>
+
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="t90" name="t90" placeholder="T90">
+                                        <input type="text" class="form-control mb-30" id="t90" name="t90" placeholder="T90" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="mspo2" name="mspo2" placeholder="MSpO2">
+                                        <input type="text" class="form-control mb-30" id="mspo2" name="mspo2" placeholder="MSpO2" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="spo2Nadir" name="spo2Nadir" placeholder="SpO2 Nadir">
+                                        <input type="text" class="form-control mb-30" id="spo2Nadir" name="spo2Nadir" placeholder="SpO2 Nadir" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">
-                                            <select class="form-control mb-30" id="hbp" name="hbp">
+                                            <select class="form-control mb-30" id="hbp" name="hbp" required>
                                                 <option>High blood pressure</option>
                                                 <option>No</option>
                                                 <option>Yes</option>
@@ -195,7 +197,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="gender" name="gender"> 
+                                            <select class="form-control mb-30" id="gender" name="gender" required> 
                                                 <option>Gender</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
@@ -204,7 +206,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="snoring" name="snoring">
+                                            <select class="form-control mb-30" id="snoring" name="snoring" required>
                                                 <option>Snoring Level</option>
                                                 <option>As loud as breathing</option>
                                                 <option>As loud as talking</option>
@@ -215,7 +217,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="fatigue" name="fatigue">
+                                            <select class="form-control mb-30" id="fatigue" name="fatigue" required>
                                                 <option>Freq. daytime fatigue</option>
                                                 <option>Never</option>
                                                 <option>1-2x/Month</option>
@@ -227,7 +229,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="obs"  name="obs">
+                                            <select class="form-control mb-30" id="obs"  name="obs" required>
                                                 <option>Freq. observed stop breathing</option>
                                                 <option>Never</option>
                                                 <option>1-2x/Month</option>
@@ -239,17 +241,17 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control mb-30" id="bmi" name="bmi" placeholder="Body Mass Index">
+                                            <input type="text" class="form-control mb-30" id="bmi" name="bmi" placeholder="Body Mass Index" required>
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="age" name="age" placeholder="Age">
+                                        <input type="text" class="form-control mb-30" id="age" name="age" placeholder="Age" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="nc" name="nc" placeholder="Neck Circumference">
+                                        <input type="text" class="form-control mb-30" id="nc" name="nc" placeholder="Neck Circumference" required>
                                     </div>
                                 </div>
                                 
@@ -371,8 +373,10 @@
                 document.getElementById("scoreResult").innerHTML = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
                 }
             };
-            xhttp.open("POST", "https://132.68.177.116:80", true);
-         
+            //xhttp.open("POST", "https://132.68.177.116:80", true);
+            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/query", true);
+            //xhttp.open("POST", "http://127.0.0.1:5000/query", true);
+
             
             xhttp.send("?"+method+"?"+mspo2+"?"+spo2Nadir+"?"+t90+"?"+odi+"?"+snoring+"?"+fatigue
             +"?"+obs+"?"+hbp+"?"+bmi+"?"+age+"?"+gender+"?"+nc);
