@@ -374,7 +374,7 @@
                 }
             };
             //xhttp.open("POST", "https://132.68.177.116:80", true);
-            //xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
+            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
             //xhttp.open("POST", "http://127.0.0.1:5000/", true);
 
             var data = new FormData();
@@ -392,13 +392,15 @@
             data.append('SB_SCORE_GENDER', gender);
             data.append('SB_RAW_NECK_CIRC', nc);
         
-            //xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded charset=utf-8");
+            //xhttp.setRequestHeader('Content-type', 'text/html');
 
-            //xhttp.send(data);
+           
+         
+            xhttp.send(data);
 
-            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/query", true);
-            xhttp.send("?"+method+"?"+mspo2+"?"+spo2Nadir+"?"+t90+"?"+odi+"?"+snoring+"?"+fatigue
-            +"?"+obs+"?"+hbp+"?"+bmi+"?"+age+"?"+gender+"?"+nc);
+            //xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/query", true);
+            //xhttp.send("?"+method+"?"+mspo2+"?"+spo2Nadir+"?"+t90+"?"+odi+"?"+snoring+"?"+fatigue
+            //+"?"+obs+"?"+hbp+"?"+bmi+"?"+age+"?"+gender+"?"+nc);
 
 
 
