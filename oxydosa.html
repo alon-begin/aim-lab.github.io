@@ -165,7 +165,6 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="odi">ODI</label>
                                         <input type="text" class="form-control mb-30" id="odi" name="odi"  placeholder="odi" required>
                                         
                                     </div>
@@ -199,8 +198,8 @@
                                         <div>
                                             <select class="form-control mb-30" id="gender" name="gender" required> 
                                                 <option>Gender</option>
-                                                <option>Male</option>
                                                 <option>Female</option>
+                                                <option>Male</option>
                                             </select>
                                         </div>
                                 </div>
@@ -208,6 +207,7 @@
                                         <div>
                                             <select class="form-control mb-30" id="snoring" name="snoring" required>
                                                 <option>Snoring Level</option>
+                                                <option>Does not snore</option>
                                                 <option>As loud as breathing</option>
                                                 <option>As loud as talking</option>
                                                 <option>Louder than talking</option>
@@ -327,8 +327,8 @@
             document.getElementById("spo2Nadir").value = 91; //SPO2_PERCENTILE_1_TRT
             document.getElementById("t90").value = 0.002633415; //SPO2_BELOW_90_TRT
             document.getElementById("odi").value = 14.44018137; //DESAT_INDEX_TRT_ALL
-            document.getElementById("snoring").selectedIndex = 1; //SB_RAW_SNORING_LEVEL
-            document.getElementById("fatigue").selectedIndex = 2; //SB_RAW_DAYTIME_FATIGUE
+            document.getElementById("snoring").selectedIndex = 2; //SB_RAW_SNORING_LEVEL
+            document.getElementById("fatigue").selectedIndex = 3; //SB_RAW_DAYTIME_FATIGUE
             document.getElementById("obs").selectedIndex = 1; //SB_RAW_FREQ_OBS_APNOEA
             document.getElementById("hbp").selectedIndex = 1; //SB_SCORE_HIGH_BP
             document.getElementById("bmi").value = 32.06; //SB_RAW_BMI
@@ -346,8 +346,8 @@
             var spo2Nadir = document.getElementById("spo2Nadir").value; //SPO2_PERCENTILE_1_TRT
             var t90 = document.getElementById("t90").value; //SPO2_BELOW_90_TRT
             var odi = document.getElementById("odi").value; //DESAT_INDEX_TRT_ALL
-            var snoring = document.getElementById("snoring").selectedIndex; //SB_RAW_SNORING_LEVEL
-            var fatigue = document.getElementById("fatigue").selectedIndex; //SB_RAW_DAYTIME_FATIGUE
+            var snoring = document.getElementById("snoring").selectedIndex-1; //SB_RAW_SNORING_LEVEL
+            var fatigue = document.getElementById("fatigue").selectedIndex-1; //SB_RAW_DAYTIME_FATIGUE
             var obs = document.getElementById("obs").selectedIndex-1; //SB_RAW_FREQ_OBS_APNOEA
             var hbp = document.getElementById("hbp").selectedIndex-1; //SB_SCORE_HIGH_BP
             var bmi = document.getElementById("bmi").value; //SB_RAW_BMI
