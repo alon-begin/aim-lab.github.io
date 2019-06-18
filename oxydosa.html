@@ -154,111 +154,125 @@
                                 <div class="col-12">
                                         <div>
                                             <!-- <h5>Select Guideline</h5> -->
-                                            <select class="form-control mb-30" id="guideline" name="guideline" required>
-                                                <option>Select Guideline</option>
+                                            <select class="form-control mb-40" id="guideline" name="guideline" required>
+                                                <option value="" disabled selected>Guideline</option>                                          
                                                 <option>AHI17R</option>
                                                 <option>AHI17A</option>
                                                 <option>RDI17R</option>
                                                 <option>RDI17A</option>
                                                 <option>AHI17R_OLD_VER</option>
                                             </select>
+                                            <label for="guideline" class="label-area-select">Guideline</label>
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="odi" name="odi"  placeholder="odi" required>
-                                        
+                                        <input type="text" class="form-control mb-40" id="odi" name="odi" required>
+                                        <label for="odi" class="label-area">ODI</label>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="t90" name="t90" placeholder="T90" required>
+                                        <input type="text" class="form-control mb-40" id="t90" name="t90" required>
+                                        <label for="t90" class="label-area">T90</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="mspo2" name="mspo2" placeholder="MSpO2" required>
+                                        <input type="text" class="form-control mb-40" id="mspo2" name="mspo2" required>
+                                        <label for="mspo2" class="label-area">MSpO2</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="spo2Nadir" name="spo2Nadir" placeholder="SpO2 Nadir" required>
+                                        <input type="text" class="form-control mb-40" id="spo2Nadir" name="spo2Nadir" required>
+                                        <label for="spo2Nadir" class="label-area">SpO2 Nadir</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
+                                        
                                         <div class="form-group">
-                                            <select class="form-control mb-30" id="hbp" name="hbp" required>
-                                                <option>High blood pressure</option>
+                        
+                                            <select class="form-control mb-40" id="hbp" name="hbp" placeholder="sdg" required>
+                                                <option value="" disabled selected>High blood pressure</option>
                                                 <option>No</option>
                                                 <option>Yes</option>
                                             </select>
+                                            <label for="hbp" class="label-area-select">High blood pressure</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="gender" name="gender" required> 
-                                                <option>Gender</option>
+                                            <select class="form-control mb-40" id="gender" name="gender" required> 
+                                                <option value="" disabled selected>Gender</option>                                
                                                 <option>Female</option>
                                                 <option>Male</option>
                                             </select>
+                                            <label for="hbp" class="label-area-select">Gender</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="snoring" name="snoring" required>
-                                                <option>Snoring Level</option>
+                                            <select class="form-control mb-40" id="snoring" name="snoring" required>
+                                                <option value="" disabled selected>Snoring Level</option>                                                 <option></option>
                                                 <option>Does not snore</option>
                                                 <option>As loud as breathing</option>
                                                 <option>As loud as talking</option>
                                                 <option>Louder than talking</option>
                                                 <option>Can be heard in another room</option>
                                             </select>
+                                            <label for="hbp" class="label-area-select">Snoring Level</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="fatigue" name="fatigue" required>
-                                                <option>Freq. daytime fatigue</option>
+                                            <select class="form-control mb-40" id="fatigue" name="fatigue" required>                                        
+                                                <option value="" disabled selected>Freq. daytime fatigue</option> 
                                                 <option>Never</option>
                                                 <option>1-2x/Month</option>
                                                 <option>1-2x/Week</option>
                                                 <option>3-4x/Week</option>
                                                 <option>Daily</option>
                                             </select>
+                                            <label for="hbp" class="label-area-select">Freq. daytime fatigue</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
-                                            <select class="form-control mb-30" id="obs"  name="obs" required>
-                                                <option>Freq. observed stop breathing</option>
+                                            <select class="form-control mb-40" id="obs"  name="obs" required>
+                                                <option value="" disabled selected>Freq. observed stop breathing</option>
                                                 <option>Never</option>
                                                 <option>1-2x/Month</option>
                                                 <option>1-2x/Week</option>
                                                 <option>3-4x/Week</option>
                                                 <option>Daily</option>
                                             </select>
+                                            <label for="hbp" class="label-area-select">Freq. observed stop breathing</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control mb-30" id="bmi" name="bmi" placeholder="Body Mass Index" required>
+                                            <input type="text" class="form-control mb-40" id="bmi" name="bmi" required>
+                                            <label for="bmi" class="label-area">BMI</label>
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="age" name="age" placeholder="Age" required>
+                                        <input type="text" class="form-control mb-40" id="age" name="age" required>
+                                        <label for="age" class="label-area">Age</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-30" id="nc" name="nc" placeholder="Neck Circumference" required>
+                                        <input type="text" class="form-control mb-40" id="nc" name="nc" required>
+                                        <label for="nc" class="label-area">Neck Circumference</label>
                                     </div>
                                 </div>
                                 
                                 <div class="col-12">
                                     
-                                    <div class="post-content text-center mb-30">
+                                    <div class="post-content text-center mb-40">
                                         <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
                                         <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()">Compute Score</button>
                                         <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Load Test Profile</button>
@@ -267,9 +281,7 @@
                                    
                                 </div>
                                 <br><br>
-                                
-                                
-                                
+
                                 
                                 <br><br>
                                 [1] Joachim A. Behar*, Niclas Palmius*, Qiao Li, Silverio Garbuio, Fabìola P. G Rizzatti, 

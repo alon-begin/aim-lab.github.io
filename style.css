@@ -2083,6 +2083,8 @@ input:focus {
 .uza-contact-form {
   position: relative;
   z-index: 1; }
+
+
   .uza-contact-form .form-control {
     width: 100%;
     height: 50px;
@@ -2090,7 +2092,24 @@ input:focus {
     border-radius: 30px;
     color: #463d3d;
     font-size: 14px; }
-  .uza-contact-form .form-control:focus {
+  .uza-contact-form .form-control:focus + .label-area, .uza-contact-form .form-control:valid + .label-area{
+    position: absolute;
+    top: -25px;
+    right: 90%;
+    width: 100%;
+    margin-right: -100%;
+    bottom: 2px;
+    box-shadow: none;
+    border-color: #1583e9; }
+
+  .uza-contact-form .form-control:focus + .label-area-select, .uza-contact-form .form-control:valid + .label-area-select{
+    
+    position: absolute;
+    top: -25px;
+    right: 90%;
+    width: 100%;
+    margin-right: -100%;
+    bottom: 2px;
     box-shadow: none;
     border-color: #1583e9; }
     
@@ -2098,7 +2117,33 @@ input:focus {
     height: 110px;
     padding: 20px; }
 
- 
+
+.label-area{
+  z-index: 1;
+  transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+  position: absolute;
+  top: 15px;
+  right: 90%;
+  width: 100%;
+  margin-right: -100%;
+  bottom: 2px;
+} 
+
+.label-area-select{
+  z-index: -1;
+  transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+  position: absolute;
+  top: 15px;
+  right: 90%;
+  width: 100%;
+  margin-right: -100%;
+  bottom: 2px;
+} 
+
+
+
+
+
 
 /* .uza-contact-form {
   position: relative;
