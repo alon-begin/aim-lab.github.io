@@ -120,12 +120,11 @@
                             <h4>This page is under Construction. Expected release: 21-06-2019. Please fill out the form below to inquire the score:</h4>
                             The OxyDOSA model was developed by Behar, Palmius and colleagues [1] for the purpose of OSA screening from a minimal
                             set of oxygen saturation and demographic features. An implementation of the machine learning model trained on a representative
-                            population sample of 887 individuals is provided bellow. Disclaimer here.
+                            population sample of 887 individuals is provided bellow. Disclaimer 
+                            <a href="./docs/AIMLab.ValueChart.pdf" style="color:#1583e9">here</a>
+                            .</h4>
                         </div>
-                        <div class="tooltip">Hover over me
-                            <span class="tooltiptext">Tooltip text</span>
-                        </div>
-                   
+                 
                         <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET" target="hidden_iframe" onsubmit="submitted=true;"> -->
                         <form name="oxydosa_form" id="oxydosa_form">
                             <div class="row">
@@ -296,6 +295,7 @@
                             <input type="search" id="scoreResult" name="top-search-bar" class="form-control" placeholder="">
                             <!-- <button type="submit" data-dismiss="modal">Close</button> -->
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -429,6 +429,8 @@
             data.append('SB_RAW_NECK_CIRC', nc);
 
             xhttp.send(data);
+
+            document.getElementById("scoreResult").value = "Getting Results...";
 
             event.preventDefault(); 
         }
