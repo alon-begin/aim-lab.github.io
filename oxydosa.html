@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="uza - Model Agency HTML5 Template">
+    <meta name="description" content="AIMLab. - Artificial Intelligence in Medicine Laboratory Website">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -121,17 +121,14 @@
                             The OxyDOSA model was developed by Behar, Palmius and colleagues [1] for the purpose of OSA screening from a minimal
                             set of oxygen saturation and demographic features. An implementation of the machine learning model trained on a representative
                             population sample of 887 individuals is provided bellow. Disclaimer 
-                            <a href="./docs/AIMLab.ValueChart.pdf" style="color:#1583e9">here</a>
-                            .</h4>
+                            <a href="./docs/AIMLab.MedicalDisclaimer.pdf" style="color:#1583e9">here</a>.</h4>
                         </div>
                  
-                        <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET" target="hidden_iframe" onsubmit="submitted=true;"> -->
                         <form name="oxydosa_form" id="oxydosa_form">
                             <div class="row">
                                 
                                 <div class="col-12">
                                         <div>
-                                            <!-- <h5>Select Guideline</h5> -->
                                             <select class="form-control mb-40" id="guideline" name="guideline" required>
                                                 <option value="" disabled selected>Guideline</option>                                          
                                                 <option>AHI17A</option>
@@ -405,7 +402,7 @@
 
                 resultString = this.responseText;
                 osa = resultString.slice(1,2);
-                prob = (resultString.slice(3,-1)*100).toPrecision(3);
+                prob = (resultString.slice(3,-1)*100).toPrecision(4);
 
                 document.getElementById("scoreResult").value = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
                 }
