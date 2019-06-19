@@ -145,8 +145,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-40" id="odi" name="odi" data-toggle="tooltip" data-placement="Left" title="The 3% oxygen desaturation index" required>
-                                        <label for="odi" class="label-area">ODI</label>    
-                                                    
+                                        <label for="odi" class="label-area">ODI</label>
+                                        <label for="odi" class="units-area9">Events/Hr</label>                               
                                     </div>
                                 </div>
 
@@ -154,18 +154,21 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-40" id="t90" name="t90" data-toggle="tooltip" data-placement="Right" title="The proportion of time spent with SpO2<90%" required>
                                         <label for="t90" class="label-area">T90</label>
+                                        <label for="t90" class="units-area1">%</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-40" id="mspo2" name="mspo2" data-toggle="tooltip" data-placement="Left" title="The mean oxygen saturation" required>
                                         <label for="mspo2" class="label-area">MSpO2</label>
+                                        <label for="mspo2" class="units-area1">%</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-40" id="spo2Nadir" name="spo2Nadir" data-toggle="tooltip" data-placement="Right" title="Lowest value of oxygen saturation" required>
                                         <label for="spo2Nadir" class="label-area">SpO2 Nadir</label>
+                                        <label for="spo2Nadir" class="units-area1">%</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -231,8 +234,9 @@
                                 </div>
                                 <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control mb-40" id="bmi" name="bmi" required>
+                                            <input type="text" class="form-control mb-40" id="bmi" name="bmi" data-toggle="tooltip" data-placement="Right" title="Body mass index" required>
                                             <label for="bmi" class="label-area">BMI</label>
+                                            <label for="bmi" class="units-area5">kg/m2</label>
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -245,6 +249,7 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-40" id="nc" name="nc" required>
                                         <label for="nc" class="label-area">Neck Circumference</label>
+                                        <label for="nc" class="units-area2">cm</label>
                                     </div>
                                 </div>
                                 
@@ -406,7 +411,7 @@
                 prob = (resultString.slice(3,-1)*100).toPrecision(4);
 
                
-                if(osa){
+                if(osa == 1){
                     document.getElementById("scoreResult").style.backgroundColor = "#EBB32C";
                 }
                 else{document.getElementById("scoreResult").style.backgroundColor = "#2DB680";
