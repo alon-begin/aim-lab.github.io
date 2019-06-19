@@ -1,10 +1,38 @@
-<label for="business">Some Label
+<!DOCTYPE html>
+<html>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
 
-        <select id="business" name="business">
-            <option value="First Choice">First Choice</option>
-            <option value="Second Choice">Second Choice</option>
-            <option value="Third Choice">Third Choice</option>
-            <option value="Fourth Choice">Fourth Choice</option>
-        </select>
-        
-        </label>
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<body style="text-align:center;">
+
+
+
+<div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+
+
+</body>
+</html>

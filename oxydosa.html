@@ -26,27 +26,6 @@
         </div>
     </div>
 
-    <!-- ***** Top Search Area Start ***** -->
-    <div class="top-search-area">
-        <!-- Search Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <!-- Close Button -->
-                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                        <!-- Form -->
-                        <form action="index.html" method="post">
-                            <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
-                            <button type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Top Search Area End ***** -->
-
     <!-- ***** Header Area Start ***** -->
     <header class="header-area">
         <!-- Main Header Start -->
@@ -93,10 +72,7 @@
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
 
-                            <!-- Search Icon -->
-                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="icon_search"></i>
-                            </div>
+                           
                         </div>
                         <!-- Nav End -->
 
@@ -146,47 +122,52 @@
                             set of oxygen saturation and demographic features. An implementation of the machine learning model trained on a representative
                             population sample of 887 individuals is provided bellow. Disclaimer here.
                         </div>
+                        <div class="tooltip">Hover over me
+                            <span class="tooltiptext">Tooltip text</span>
+                        </div>
+                   
                         <!-- <form name="oxydosa_form" id="oxydosa_form" action="http://132.68.177.116/" method="GET" target="hidden_iframe" onsubmit="submitted=true;"> -->
                         <form name="oxydosa_form" id="oxydosa_form">
-                            
-                            
                             <div class="row">
+                                
                                 <div class="col-12">
                                         <div>
                                             <!-- <h5>Select Guideline</h5> -->
                                             <select class="form-control mb-40" id="guideline" name="guideline" required>
                                                 <option value="" disabled selected>Guideline</option>                                          
-                                                <option>AHI17R</option>
                                                 <option>AHI17A</option>
-                                                <option>RDI17R</option>
+                                                <option>AHI17R</option>
                                                 <option>RDI17A</option>
-                                                <option>AHI17R_OLD_VER</option>
+                                                <option>RDI17R</option>
                                             </select>
-                                            <label for="guideline" class="label-area-select">Guideline</label>
-                                        </div>
+                                            <label for="guideline" class="label-area-select-long">Guideline</label>                                            
+                                        </div>       
                                 </div>
+                                
+
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-40" id="odi" name="odi" required>
-                                        <label for="odi" class="label-area">ODI</label>
+                                        <input type="text" class="form-control mb-40" id="odi" name="odi" data-toggle="tooltip" data-placement="Left" title="The 3% oxygen desaturation index" required>
+                                        <label for="odi" class="label-area">ODI</label>    
+                                                    
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-40" id="t90" name="t90" required>
+                                        <input type="text" class="form-control mb-40" id="t90" name="t90" data-toggle="tooltip" data-placement="Right" title="The proportion of time spent with SpO2<90%" required>
                                         <label for="t90" class="label-area">T90</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-40" id="mspo2" name="mspo2" required>
+                                        <input type="text" class="form-control mb-40" id="mspo2" name="mspo2" data-toggle="tooltip" data-placement="Left" title="The mean oxygen saturation" required>
                                         <label for="mspo2" class="label-area">MSpO2</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control mb-40" id="spo2Nadir" name="spo2Nadir" required>
+                                        <input type="text" class="form-control mb-40" id="spo2Nadir" name="spo2Nadir" data-toggle="tooltip" data-placement="Right" title="Lowest value of oxygen saturation" required>
                                         <label for="spo2Nadir" class="label-area">SpO2 Nadir</label>
                                     </div>
                                 </div>
@@ -274,9 +255,11 @@
                                     
                                     <div class="post-content text-center mb-40">
                                         <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
-                                        <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()">Compute Score</button>
-                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Load Test Profile</button>
-                                        <h5 id="scoreResult"></h5>
+                                  
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()" data-toggle="modal" data-target="#searchModal">Compute Score</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="clearForm()">Clear</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Test</button>
+                                        <!-- <h5 id="scoreResult"></h5> -->
                                     </div>
                                    
                                 </div>
@@ -298,6 +281,28 @@
         </div>
     </section>
     <!-- ***** Contact Area End ***** -->
+
+      <!-- ***** Top Search Area Start ***** -->
+      <div class="top-search-area">
+        <!-- Search Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Close Button -->
+                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <!-- Form -->
+                        <form action="index.html" method="post">
+                            <input type="search" id="scoreResult" name="top-search-bar" class="form-control" placeholder="">
+                            <!-- <button type="submit" data-dismiss="modal">Close</button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Top Search Area End ***** -->
+
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area section-padding-80-0">
@@ -346,11 +351,30 @@
             document.getElementById("hbp").selectedIndex = 1; //SB_SCORE_HIGH_BP
             document.getElementById("bmi").value = 32.06; //SB_RAW_BMI
             document.getElementById("age").value = 34; //SB_RAW_AGE
-            document.getElementById("gender").selectedIndex = 1; //SB_SCORE_GENDER
+            document.getElementById("gender").selectedIndex = 2; //SB_SCORE_GENDER
             document.getElementById("nc").value = 43; //SB_RAW_NECK_CIRC */
 
             event.preventDefault(); 
         }
+
+        function clearForm(){
+
+        document.getElementById("guideline").selectedIndex = undefined;
+        document.getElementById("mspo2").value =  ""; //SPO2_MEAN_TRT
+        document.getElementById("spo2Nadir").value = ""; //SPO2_PERCENTILE_1_TRT
+        document.getElementById("t90").value =  ""; //SPO2_BELOW_90_TRT
+        document.getElementById("odi").value =  ""; //DESAT_INDEX_TRT_ALL
+        document.getElementById("snoring").selectedIndex =  ""; //SB_RAW_SNORING_LEVEL
+        document.getElementById("fatigue").selectedIndex =  ""; //SB_RAW_DAYTIME_FATIGUE
+        document.getElementById("obs").selectedIndex =  ""; //SB_RAW_FREQ_OBS_APNOEA
+        document.getElementById("hbp").selectedIndex =  ""; //SB_SCORE_HIGH_BP
+        document.getElementById("bmi").value =  ""; //SB_RAW_BMI
+        document.getElementById("age").value =  ""; //SB_RAW_AGE
+        document.getElementById("gender").selectedIndex =  ""; //SB_SCORE_GENDER
+        document.getElementById("nc").value =  ""; //SB_RAW_NECK_CIRC */
+
+        event.preventDefault(); 
+}
                 
         function requestScore(){
 
@@ -383,12 +407,11 @@
                 osa = resultString.slice(1,2);
                 prob = (resultString.slice(3,-1)*100).toPrecision(3);
 
-                document.getElementById("scoreResult").innerHTML = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
+                document.getElementById("scoreResult").value = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
                 }
             };
-            //xhttp.open("POST", "https://132.68.177.116:80", true);
             xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
-            //xhttp.open("POST", "http://127.0.0.1:5000/", true);
+   
 
             var data = new FormData();
             data.append('METHOD', method);
@@ -404,31 +427,12 @@
             data.append('SB_RAW_AGE', age);
             data.append('SB_SCORE_GENDER', gender);
             data.append('SB_RAW_NECK_CIRC', nc);
-        
-            //xhttp.setRequestHeader('Content-type', 'text/html');
 
-           
-         
             xhttp.send(data);
 
-            //xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/query", true);
-            //xhttp.send("?"+method+"?"+mspo2+"?"+spo2Nadir+"?"+t90+"?"+odi+"?"+snoring+"?"+fatigue
-            //+"?"+obs+"?"+hbp+"?"+bmi+"?"+age+"?"+gender+"?"+nc);
-
-
-
             event.preventDefault(); 
-
         }
 
     </script>
-    
-    
-
-
-
-
-
 </body>
-
 </html>
