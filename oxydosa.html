@@ -404,7 +404,15 @@
                 osa = resultString.slice(1,2);
                 prob = (resultString.slice(3,-1)*100).toPrecision(4);
 
+               
+                if(osa){
+                    document.getElementById("scoreResult").style.backgroundColor = "#EBB32C";
+                }
+                else{document.getElementById("scoreResult").style.backgroundColor = "#2DB680";
+                }
+
                 document.getElementById("scoreResult").value = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
+
                 }
             };
             xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
