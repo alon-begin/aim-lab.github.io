@@ -294,10 +294,18 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <!-- Close Button -->
-                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <!-- <button type="button" class="btn close-btn" data-dismiss="modal" onclick="clearResults()"><i class="fa fa-times"></i></button> -->
                         <!-- Form -->
                         <form action="index.html" method="post">
-                            <input type="search" id="scoreResult" name="top-search-bar" class="form-control" placeholder="">
+                            <label>OxyDOSA</label>
+                            <input type="search" id="resOXYDOSA" class="form-control" placeholder="" disabled>
+                            <label>LR-SB</label>
+                            <input type="search" id="resLRSB" class="form-control" placeholder="" disabled>
+                            <label>STOP-BANG</label>
+                            <input type="search" id="resSTOPBANG" class="form-control" placeholder="" disabled>
+                            <label>NoSAS</label>
+                            <input type="search" id="resNOSAS" class="form-control" placeholder="" disabled>
+
                             <!-- <button type="submit" data-dismiss="modal">Close</button> -->
                         </form>
                         
@@ -379,7 +387,14 @@
         document.getElementById("nc").value =  ""; //SB_RAW_NECK_CIRC */
 
         event.preventDefault(); 
-}
+        }
+
+
+        function clearResults(){
+
+
+
+        }
                 
         function requestScore(){
 
@@ -408,22 +423,71 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
 
-                resultString = this.responseText;
-                osa = resultString.slice(1,2);
-                prob = (resultString.slice(3,-1)*100).toPrecision(4);
+                resultJSON = JSON.parse(this.responseText);
 
-               
-                if(osa == 1){
-                    document.getElementById("scoreResult").style.backgroundColor = "#EBB32C";
+                var oxydosa = JSON.parse(resultJSON['OXYDOSA']);
+                var lrsb = JSON.parse(resultJSON['LRSB']);
+                var stopbang = JSON.parse(resultJSON['STOPBANG']);
+                var nosas = JSON.parse(resultJSON['NOSAS']);
+                
+
+                document.getElementById("resOXYDOSA").value = "Predicted OSA with probability of "+ (oxydosa[1]*100).toPrecision(4)+"%";
+                document.getElementById("resLRSB").value = "Predicted OSA with probability of "+ (lrsb[1]*100).toPrecision(4)+"%";
+                document.getElementById("resSTOPBANG").value = "Score:  " + stopbang[2]+"/8";
+                document.getElementById("resNOSAS").value = "Score:  "+ nosas[2]+"/17"; 
+
+                if (oxydosa[0]){
+                    document.getElementById("resOXYDOSA").style.backgroundColor = "#EBB32C"; // orange
                 }
-                else{document.getElementById("scoreResult").style.backgroundColor = "#2DB680";
+                else{
+                    document.getElementById("resOXYDOSA").style.backgroundColor = "#2DB680";// green 
                 }
 
-                document.getElementById("scoreResult").value = "Predicted OSA:  "+osa+"  with a probability of:  "+prob+"%";
+                if (lrsb[0]){
+                    document.getElementById("resLRSB").style.backgroundColor = "#EBB32C"; 
+                }
+                else{
+                    document.getElementById("resLRSB").style.backgroundColor = "#2DB680";
+                }
+
+                if (stopbang[0]){
+                    if (stopbang[2] <=2){
+
+                        document.getElementById("resSTOPBANG").style.backgroundColor = "#35C4F0"; // blue 	
+
+
+                    }else if (stopbang[2] > 2 || stopbang[2] <= 4){
+
+                        document.getElementById("resSTOPBANG").style.backgroundColor = "#EBB32C";
+
+                    }else{
+
+                        document.getElementById("resSTOPBANG").style.backgroundColor = "#DF1D5A"; // red
+
+                    }
+
+                }
+                else{
+                    document.getElementById("resSTOPBANG").style.backgroundColor = "#2DB680";
+                }
+
+                if (nosas[0]){
+                    if (nosas[2] >= 8){
+                        document.getElementById("resNOSAS").style.backgroundColor = "#DF1D5A";
+                    }
+                    else{
+                        document.getElementById("resNOSAS").style.backgroundColor = "#35C4F0";
+                    }
+                }
+                else{
+                    document.getElementById("resNOSAS").style.backgroundColor = "#463d3d";
+                }
+
+
 
                 }
             };
-            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
+            xhttp.open("POST", "http://127.0.0.1:5000", true);
    
 
             var data = new FormData();
@@ -443,7 +507,10 @@
 
             xhttp.send(data);
 
-            document.getElementById("scoreResult").value = "Getting Results...";
+            document.getElementById("resOXYDOSA").value = "Getting Results...";
+            document.getElementById("resLRSB").value = "Getting Results...";
+            document.getElementById("resSTOPBANG").value = "Getting Results...";
+            document.getElementById("resNOSAS").value = "Getting Results...";
 
             event.preventDefault(); 
         }

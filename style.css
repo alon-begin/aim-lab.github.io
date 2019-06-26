@@ -616,7 +616,8 @@ input:focus {
     border-radius: 6px;
     font-size: 18px;
     font-style: bold;
-    padding: 0 10px; }
+    padding: 0 10px;
+    margin-bottom: 20px}
     .top-search-area form input:focus {
       box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.08); }
   .top-search-area form button {
