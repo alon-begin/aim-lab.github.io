@@ -56,7 +56,9 @@
                                 <li><a href="./team.html">Team</a></li>
                                 <li><a href="#">Research</a>
                                     <ul class="dropdown">
-                                        <li><a href="./research.html">Research Topics</a></li>
+                                        <li><a href="./ethics.html">Ethics</a></li>
+                                        <li><a href="./research.html">Topics</a></li>
+                                        <li><a href="./patents.html">Patents</a></li>
                                         <li><a href="./publications.html">Publications</a></li>
                                     </ul>
                                 </li>
@@ -68,7 +70,6 @@
                                         <li><a href="https://physiozoo.com/">PhysioZoo</a></li>
                                     </ul>
                                 </li>
-                                
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
 
@@ -126,21 +127,19 @@
                         </div>
                  
                         <form name="oxydosa_form" id="oxydosa_form">
-                            <div class="row">
-                                
+                            <div class="row">  
                                 <div class="col-12">
-                                        <div>
-                                            <select class="form-control mb-40" id="guideline" name="guideline" required>
-                                                <option value="" disabled selected>Guideline</option>                                          
-                                                <option>AHI17A</option>
-                                                <option>AHI17R</option>
-                                                <option>RDI17A</option>
-                                                <option>RDI17R</option>
-                                            </select>
-                                            <label for="guideline" class="label-area-select-long">Guideline</label>                                            
-                                        </div>       
+                                    <div>
+                                        <select class="form-control mb-40" id="guideline" name="guideline" required>
+                                            <option value="" disabled selected>Guideline</option>                                          
+                                            <option>AHI17A</option>
+                                            <option>AHI17R</option>
+                                            <option>RDI17A</option>
+                                            <option>RDI17R</option>
+                                        </select>
+                                        <label for="guideline" class="label-area-select-long">Guideline</label>                                            
+                                    </div>       
                                 </div>
-                                
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -257,16 +256,17 @@
                                     
                                     <div class="post-content text-center mb-40">
                                         <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
+                                        <button class="btn uza-btn btn-3 mt-15" type="submit" onclick="test()">Compute</button>
                                   
-                                        <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()" data-toggle="modal" data-target="#searchModal">Compute Score</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onsubmit="requestScore()" data-toggle="modal" data-target="#searchModal">Compute Score</button>
                                         <button class="btn uza-btn btn-3 mt-15" onclick="clearForm()">Clear</button>
-                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Test</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Test Case</button>
+                                        
                                         <!-- <h5 id="scoreResult"></h5> -->
                                     </div>
                                    
                                 </div>
                                 <br><br>
-
                                 
                                 <br><br>
                                 [1] Joachim A. Behar*, Niclas Palmius*, Qiao Li, Silverio Garbuio, Fabìola P. G Rizzatti, 
@@ -294,19 +294,22 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <!-- Close Button -->
-                        <!-- <button type="button" class="btn close-btn" data-dismiss="modal" onclick="clearResults()"><i class="fa fa-times"></i></button> -->
+                        <button type="button" class="btn close-btn" data-dismiss="modal" onclick="clearResults()"><i class="fa fa-times"></i></button>
                         <!-- Form -->
                         <form action="index.html" method="post">
-                            <label>OxyDOSA</label>
+                            <label data-toggle="tooltip" data-placement="Top" title="Oxygen saturation and Demographics based model for OSA
+                            (combination of oxygen saturation biomarkers, demographic and anthropometric information)
+                            Joachim A. Behar*, Niclas Palmius*, Qiao Li, Silverio Garbuio, Fabìola P. G Rizzatti, Lia Bittencourt, Sergio Tufik#, Gari D. Clifford# (2019) Feasibility of single channel oximetry monitoring for obstructive sleep apnea screening. EClinicalMedicine , 11, 81-88.">OxyDOSA [?]</label>
                             <input type="search" id="resOXYDOSA" class="form-control" placeholder="" disabled>
-                            <label>LR-SB</label>
+                            <label data-toggle="tooltip" data-placement="Top" title="Classifiers were trained using all the raw demographic features provided by the STOP-BANG questionnaire.">LR-SB [?]</label>
                             <input type="search" id="resLRSB" class="form-control" placeholder="" disabled>
-                            <label>STOP-BANG</label>
+                            <label data-toggle="tooltip" data-placement="Top" title="Chung F, Subramanyam R, Liao P, Sasaki E, Shapiro C, Sun Y. High STOP-Bang score indicates a high probability of obstructive sleep apnoea. Brit J Anaesth 2012; 108: 768–75.">STOP-BANG [?]</label>
                             <input type="search" id="resSTOPBANG" class="form-control" placeholder="" disabled>
-                            <label>NoSAS</label>
+                            <label data-toggle="tooltip" data-placement="Top" title="Marti-Soler H, Hirotsu C, Marques-Vidal P, et al. The NoSAS score for screening of sleep-disordered breathing: a derivation and validation study. Lancet Resp Med 2016; 4: 742–8">NoSAS [?]</label>
                             <input type="search" id="resNOSAS" class="form-control" placeholder="" disabled>
 
                             <!-- <button type="submit" data-dismiss="modal">Close</button> -->
+
                         </form>
                         
                     </div>
@@ -351,22 +354,37 @@
     <script type="text/javascript">
 
 
+
         function loadProfile(){
 
-         
-            document.getElementById("guideline").selectedIndex = 1;
-            document.getElementById("mspo2").value = 95.2723869321425; //SPO2_MEAN_TRT
-            document.getElementById("spo2Nadir").value = 81; //SPO2_PERCENTILE_1_TRT
-            document.getElementById("t90").value = 0.0377979187646861; //SPO2_BELOW_90_TRT
-            document.getElementById("odi").value = 27.3111782477341; //DESAT_INDEX_TRT_ALL
-            document.getElementById("snoring").selectedIndex = 2; //SB_RAW_SNORING_LEVEL
+            /* document.getElementById("guideline").selectedIndex = 1;
+            document.getElementById("mspo2").value = 96.0881908788885; //SPO2_MEAN_TRT
+            document.getElementById("spo2Nadir").value = 85; //SPO2_PERCENTILE_1_TRT
+            document.getElementById("t90").value = 0.0286878727634194; //SPO2_BELOW_90_TRT
+            document.getElementById("odi").value = 6.15506958250497; //DESAT_INDEX_TRT_ALL
+            document.getElementById("snoring").selectedIndex = 3; //SB_RAW_SNORING_LEVEL
             document.getElementById("fatigue").selectedIndex = 1; //SB_RAW_DAYTIME_FATIGUE
-            document.getElementById("obs").selectedIndex = 2; //SB_RAW_FREQ_OBS_APNOEA
+            document.getElementById("obs").selectedIndex = 1; //SB_RAW_FREQ_OBS_APNOEA
             document.getElementById("hbp").selectedIndex = 1; //SB_SCORE_HIGH_BP
-            document.getElementById("bmi").value = 25.89; //SB_RAW_BMI
-            document.getElementById("age").value = 34; //SB_RAW_AGE
-            document.getElementById("gender").selectedIndex = 2; //SB_SCORE_GENDER
-            document.getElementById("nc").value = 39; //SB_RAW_NECK_CIRC */
+            document.getElementById("bmi").value = 18.519; //SB_RAW_BMI
+            document.getElementById("age").value = 71; //SB_RAW_AGE
+            document.getElementById("gender").selectedIndex = 1; //SB_SCORE_GENDER
+            document.getElementById("nc").value = 28.69; //SB_RAW_NECK_CIRC */ 
+
+
+            document.getElementById("guideline").selectedIndex = 2;
+            document.getElementById("mspo2").value = 95.058324; //SPO2_MEAN_TRT
+            document.getElementById("spo2Nadir").value = 88; //SPO2_PERCENTILE_1_TRT
+            document.getElementById("t90").value = 0.017421; //SPO2_BELOW_90_TRT
+            document.getElementById("odi").value = 4.922; //DESAT_INDEX_TRT_ALL
+            document.getElementById("snoring").selectedIndex = 1; //SB_RAW_SNORING_LEVEL
+            document.getElementById("fatigue").selectedIndex = 5; //SB_RAW_DAYTIME_FATIGUE
+            document.getElementById("obs").selectedIndex = 1; //SB_RAW_FREQ_OBS_APNOEA
+            document.getElementById("hbp").selectedIndex = 1; //SB_SCORE_HIGH_BP
+            document.getElementById("bmi").value = 24.32; //SB_RAW_BMI
+            document.getElementById("age").value = 48; //SB_RAW_AGE
+            document.getElementById("gender").selectedIndex = 1; //SB_SCORE_GENDER
+            document.getElementById("nc").value = 30.8; //SB_RAW_NECK_CIRC 
 
             event.preventDefault(); 
         }
@@ -392,7 +410,10 @@
 
 
         function clearResults(){
-
+            document.getElementById("resOXYDOSA").style.backgroundColor = '#FFFFFF'; // orange
+            document.getElementById("resLRSB").style.backgroundColor = '#FFFFFF'; 
+            document.getElementById("resSTOPBANG").style.backgroundColor = '#FFFFFF'; // blue 	
+            document.getElementById("resNOSAS").style.backgroundColor = '#FFFFFF';
 
 
         }
@@ -424,72 +445,29 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
 
-                resultJSON = JSON.parse(this.responseText);
+                    resultJSON = JSON.parse(this.responseText);
 
-                var oxydosa = JSON.parse(resultJSON['OXYDOSA']);
-                var lrsb = JSON.parse(resultJSON['LRSB']);
-                var stopbang = JSON.parse(resultJSON['STOPBANG']);
-                var nosas = JSON.parse(resultJSON['NOSAS']);
+                    var oxydosa = JSON.parse(resultJSON['OXYDOSA']);
+                    var lrsb = JSON.parse(resultJSON['LRSB']);
+                    var stopbang = JSON.parse(resultJSON['STOPBANG']);
+                    var nosas = JSON.parse(resultJSON['NOSAS']);
+
+                    document.getElementById("resOXYDOSA").value = "Predicted OSA with probability of "+ (oxydosa[1]*100).toPrecision(4)+"%";
+                    document.getElementById("resLRSB").value = "Predicted OSA with probability of "+ (lrsb[1]*100).toPrecision(4)+"%";
+                    document.getElementById("resSTOPBANG").value = "Score:  " + stopbang[2]+"/8";
+                    document.getElementById("resNOSAS").value = "Score:  "+ nosas[2]+"/17"; 
+
+                    // green blue orange res
+                    var colors = ['#2DB680','#35C4F0','#EBB32C','#DF1D5A']
                 
-
-                document.getElementById("resOXYDOSA").value = "Predicted OSA with probability of "+ (oxydosa[1]*100).toPrecision(4)+"%";
-                document.getElementById("resLRSB").value = "Predicted OSA with probability of "+ (lrsb[1]*100).toPrecision(4)+"%";
-                document.getElementById("resSTOPBANG").value = "Score:  " + stopbang[2]+"/8";
-                document.getElementById("resNOSAS").value = "Score:  "+ nosas[2]+"/17"; 
-
-                if (oxydosa[0]){
-                    document.getElementById("resOXYDOSA").style.backgroundColor = "#EBB32C"; // orange
-                }
-                else{
-                    document.getElementById("resOXYDOSA").style.backgroundColor = "#2DB680";// green 
-                }
-
-                if (lrsb[0]){
-                    document.getElementById("resLRSB").style.backgroundColor = "#EBB32C"; 
-                }
-                else{
-                    document.getElementById("resLRSB").style.backgroundColor = "#2DB680";
-                }
-
-                if (stopbang[0]){
-                    if (stopbang[2] <=2){
-
-                        document.getElementById("resSTOPBANG").style.backgroundColor = "#35C4F0"; // blue 	
-
-
-                    }else if (stopbang[2] > 2 || stopbang[2] <= 4){
-
-                        document.getElementById("resSTOPBANG").style.backgroundColor = "#EBB32C";
-
-                    }else{
-
-                        document.getElementById("resSTOPBANG").style.backgroundColor = "#DF1D5A"; // red
-
-                    }
-
-                }
-                else{
-                    document.getElementById("resSTOPBANG").style.backgroundColor = "#2DB680";
-                }
-
-                if (nosas[0]){
-                    if (nosas[2] >= 8){
-                        document.getElementById("resNOSAS").style.backgroundColor = "#DF1D5A";
-                    }
-                    else{
-                        document.getElementById("resNOSAS").style.backgroundColor = "#35C4F0";
-                    }
-                }
-                else{
-                    document.getElementById("resNOSAS").style.backgroundColor = "#463d3d";
-                }
-
-
-
+                    document.getElementById("resOXYDOSA").style.backgroundColor = colors[oxydosa[3]]; // orange
+                    document.getElementById("resLRSB").style.backgroundColor = colors[lrsb[3]]; 
+                    document.getElementById("resSTOPBANG").style.backgroundColor = colors[stopbang[3]]; // blue 	
+                    document.getElementById("resNOSAS").style.backgroundColor = colors[stopbang[3]];
                 }
             };
-            //xhttp.open("POST", "http://127.0.0.1:5000", true);
-            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
+            xhttp.open("POST", "http://127.0.0.1:5000", true);
+            //xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
 
    
 
