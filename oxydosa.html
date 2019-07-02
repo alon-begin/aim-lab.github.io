@@ -256,7 +256,6 @@
                                     
                                     <div class="post-content text-center mb-40">
                                         <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
-                                        <button class="btn uza-btn btn-3 mt-15" type="submit" onclick="test()">Compute</button>
                                   
                                         <button class="btn uza-btn btn-3 mt-15" onsubmit="requestScore()" data-toggle="modal" data-target="#searchModal">Compute Score</button>
                                         <button class="btn uza-btn btn-3 mt-15" onclick="clearForm()">Clear</button>
@@ -354,6 +353,11 @@
     <script type="text/javascript">
 
 
+        function test(){
+
+            
+
+        }
 
         function loadProfile(){
 
@@ -466,8 +470,8 @@
                     document.getElementById("resNOSAS").style.backgroundColor = colors[stopbang[3]];
                 }
             };
-            xhttp.open("POST", "http://127.0.0.1:5000", true);
-            //xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
+            //xhttp.open("POST", "http://127.0.0.1:5000", true);
+            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
 
    
 
