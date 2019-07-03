@@ -134,10 +134,10 @@
                                     <div>
                                         <select class="form-control mb-40" id="guideline" name="guideline" required>
                                             <option value="" disabled selected>Scoring guidelines used to assess patient</option>                                          
-                                            <option>AHI17A - Alternative rule of the 2017 AASM manual using AHI</option>
-                                            <option>AHI17R - Recommended rule of the 2017 AASM manual using AHI</option>
-                                            <option>RDI17A - Alternative rule of the 2017 AASM manual using RDI</option>
-                                            <option>RDI17R - Recommended rule of the 2017 AASM manual using RDI</option>
+                                            <option>AHI17A - Alternative rule of the 2017 AASM manual using Apnea Hypopnea Index</option>
+                                            <option>AHI17R - Recommended rule of the 2017 AASM manual using Apnea Hypopnea Index</option>
+                                            <option>RDI17A - Alternative rule of the 2017 AASM manual using Respiratory Disturbance Index</option>
+                                            <option>RDI17R - Recommended rule of the 2017 AASM manual using Respiratory Disturbance Index</option>
                                         </select>
                                         <label for="guideline" class="label-area-select-long">Scoring guidelines used to assess patient</label>                                            
                                     </div>       
@@ -234,11 +234,13 @@
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
+                                       
                                         <div class="form-group">
                                             <input type="text" class="form-control mb-40" id="bmi" name="bmi" data-toggle="tooltip" data-placement="Right" title="Body mass index" required>
-                                            <label for="bmi" class="label-area">BMI</label>
-                                            <label for="bmi" class="units-area5">kg/m2</label>
+                                            <label for="bmi" class="label-area">BMI </label>
+                                            <label for="bmi" class="units-area7"><a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi-m.htm" target="_blank"><i class="fa fa-calculator" style="color:#1583e9"></i></a>  kg/m2</label>
                                         </div>
+                                
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -258,8 +260,7 @@
                                     
                                     <div class="post-content text-center mb-40">
                                         <!-- <button class="btn uza-btn btn-3 mt-15">Compute Score</button> -->
-                                  
-                                        <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()" data-toggle="modal" data-target="#searchModal">Compute Score</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onsubmit="requestScore()">Compute Score</button>
                                         <button class="btn uza-btn btn-3 mt-15" onclick="clearForm()">Clear</button>
                                         <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()" data-toggle="tooltip" data-placement="Top" title="Test case individual diagnosed with OSA. The individual had AHI (Apnea–hypopnea index) of 7.1 and suffered from daily daytime fatigue">Test Case</button>
                                         
@@ -371,12 +372,8 @@
 
     <script type="text/javascript">
 
-
-        function test(){
-
-            
-
-        }
+        document.getElementById("oxydosa_form").addEventListener("submit", requestScore);   
+   
 
         function loadProfile(){
 
@@ -442,6 +439,8 @@
         }
                 
         function requestScore(){
+
+            $('#searchModal').modal('toggle')
 
             var method = document.getElementById("guideline").selectedIndex;
             var mspo2 = document.getElementById("mspo2").value; //SPO2_MEAN_TRT
