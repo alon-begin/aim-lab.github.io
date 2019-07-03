@@ -2290,17 +2290,6 @@ input:focus {
   margin: 20px 0px 30px 0px;
   }
 
-  .disclaimer2{
-    position: relative;
-    
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-   
-    background-color: #e6f2fd;
-    border-radius: 20px;
-    }
-  
 /* .uza-contact-form {
   position: relative;
   z-index: 1; }
