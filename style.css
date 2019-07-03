@@ -78,6 +78,11 @@ h6 {
   line-height: 1.4;
   font-weight: 600; }
 
+  h7 {
+    line-height: 2;
+    color: #1583e9;
+    font-size: 16px;
+    font-weight: normal;}
 a,
 a:active,
 a:focus,
@@ -100,6 +105,13 @@ p {
   color: #707070;
   font-size: 16px;
   font-weight: normal; }
+
+p2 {
+    line-height: 2;
+    color: #463d3d;
+    font-size: 16px;
+    font-weight: normal;}
+    
 
 img {
   max-width: 100%;
@@ -621,13 +633,13 @@ input:focus {
     .top-search-area form input:focus {
       box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.08); }
   .top-search-area form button {
-    position: absolute;
+    position: relative;
     width: 100px;
     height: 50px;
     top: 0;
     right: 0;
     z-index: 10;
-    border-radius: 0 6px 6px 0;
+    border-radius: 20px 20px 20px 20px;
     border: none;
     background-color: #1583e9;
     font-weight: 600;
@@ -2097,7 +2109,7 @@ input:focus {
 .uza-contact-form .form-control:focus + .label-area, .uza-contact-form .form-control:valid + .label-area{
   position: absolute;
   top: -25px;
-  right: 90%;
+  right: 94%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
@@ -2107,7 +2119,7 @@ input:focus {
 .uza-contact-form .form-control:focus + .units-area, .uza-contact-form .form-control:valid + .units-area{
   position: absolute;
   top: -25px;
-  right: 90%;
+  right: 94%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
@@ -2118,7 +2130,7 @@ input:focus {
   
   position: absolute;
   top: -25px;
-  right: 90%;
+  right: 94%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
@@ -2147,7 +2159,7 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  right: 90%;
+  right: 94%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
@@ -2159,7 +2171,7 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  right: 90%;
+  right: 94%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
@@ -2170,7 +2182,7 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  left: 5%;
+  left: 3%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
@@ -2181,11 +2193,11 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  right: 10%;
+  right: 8%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
-  color: #bfbfbf;
+  color: #463d3d;
 } 
 
 .units-area2{
@@ -2193,11 +2205,11 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  right: 12%;
+  right: 10%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
-  color: #bfbfbf;
+  color: #463d3d;
 } 
 
 .units-area5{
@@ -2205,11 +2217,11 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  right: 17%;
+  right: 14%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
-  color: #bfbfbf;
+  color: #463d3d;
 } 
 
 .units-area9{
@@ -2217,13 +2229,78 @@ input:focus {
   transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
   position: absolute;
   top: 15px;
-  right: 22%;
+  right: 18%;
   width: 100%;
   margin-right: -100%;
   bottom: 2px;
-  color: #bfbfbf;
+  color: #463d3d;
 } 
 
+
+.my-legend .legend-title {
+  text-align: left;
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-size: 90%;
+  }
+.my-legend .legend-scale ul {
+  margin: 0;
+  padding: 0;
+  
+  list-style: none;
+  }
+.my-legend .legend-scale ul li {
+  font-size: 90%;
+  list-style: none;
+  margin-left: 0;
+  line-height: 18px;
+  margin-bottom: 2px;
+  border-radius: 20px
+  }
+.my-legend ul.legend-labels li span {
+  display: block;
+  float: left;
+  height: 16px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 0;
+  border-radius: 20px
+  }
+.my-legend a {
+  color: #777;
+  }
+.my-legend{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  margin-right: 60px;
+  position: relative;
+  }
+
+.disclaimer{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #e6f2fd;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0px 5px 0px 5px;
+  margin: 20px 0px 30px 0px;
+  }
+
+  .disclaimer2{
+    position: relative;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+    background-color: #e6f2fd;
+    border-radius: 20px;
+    }
+  
 /* .uza-contact-form {
   position: relative;
   z-index: 1; }

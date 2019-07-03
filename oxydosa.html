@@ -111,19 +111,21 @@
     <!-- ***** Breadcrumb Area End ***** -->
 
     <!-- ***** Contact Area Start ***** -->
-    <section class="uza-contact-area section-padding-80">
+    <section class="uza-contact-area section-padding-60">
         <div class="container">
-            <div class="row justify-content-between">
                 <!-- Contact Form -->
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-12">
                     <div class="uza-contact-form mb-80">
                         <div class="contact-heading mb-50">
-                            <h4>Background:</h4>
-                            The OxyDOSA model was developed by Behar, Palmius and colleagues [1] for the purpose of obstructive sleep apnea (OSA) screening from a minimal
+                            <h5>Background</h5>
+                            <p>The OxyDOSA model was developed by Behar, Palmius and colleagues [1] for the purpose of obstructive sleep apnea (OSA) screening from a minimal
                             set of oxygen saturation and demographic features. An implementation of the machine learning model trained on a representative
-                            population sample of 887 individuals is provided bellow. Disclaimer 
-                            <a href="./docs/AIMLab.MedicalDisclaimer.pdf" style="color:#1583e9">here</a>.</h4>
-                            <h4>Fill out the form below to obtain the OxyDOSA score:</h4>
+                            population sample of 887 individuals is provided bellow.</br></p>                           
+                            <div class="disclaimer">
+                            <p2>The information on this page is for general informational purposes only and is not medical advice or a substitute for professional medical advice. 
+                                For full terms and conditions of use, please see  <a href="./docs/AIMLab.MedicalDisclaimer.pdf" style="color:#1583e9">here.</br></br></a></p2>
+                            </div>
+                            <h5>Fill out the form below to obtain the OxyDOSA score</h5>
                         </div>
                  
                         <form name="oxydosa_form" id="oxydosa_form">
@@ -131,13 +133,13 @@
                                 <div class="col-12">
                                     <div>
                                         <select class="form-control mb-40" id="guideline" name="guideline" required>
-                                            <option value="" disabled selected>Guideline</option>                                          
-                                            <option>AHI17A</option>
-                                            <option>AHI17R</option>
-                                            <option>RDI17A</option>
-                                            <option>RDI17R</option>
+                                            <option value="" disabled selected>Scoring guidelines used to assess patient</option>                                          
+                                            <option>AHI17A - Alternative rule of the 2017 AASM manual using AHI</option>
+                                            <option>AHI17R - Recommended rule of the 2017 AASM manual using AHI</option>
+                                            <option>RDI17A - Alternative rule of the 2017 AASM manual using RDI</option>
+                                            <option>RDI17R - Recommended rule of the 2017 AASM manual using RDI</option>
                                         </select>
-                                        <label for="guideline" class="label-area-select-long">Guideline</label>                                            
+                                        <label for="guideline" class="label-area-select-long">Scoring guidelines used to assess patient</label>                                            
                                     </div>       
                                 </div>
 
@@ -195,40 +197,40 @@
                                 <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-40" id="snoring" name="snoring" required>
-                                                <option value="" disabled selected>Snoring Level</option>  
+                                                <option value="" disabled selected>Snoring level</option>  
                                                 <option>Does not snore</option>
                                                 <option>As loud as breathing</option>
                                                 <option>As loud as talking</option>
                                                 <option>Louder than talking</option>
                                                 <option>Can be heard in another room</option>
                                             </select>
-                                            <label for="hbp" class="label-area-select">Snoring Level</label> 
+                                            <label for="hbp" class="label-area-select">Snoring level</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-40" id="fatigue" name="fatigue" required>                                        
-                                                <option value="" disabled selected>Freq. daytime fatigue</option> 
+                                                <option value="" disabled selected>Frequency of daytime fatigue</option> 
                                                 <option>Never</option>
                                                 <option>1-2x/Month</option>
                                                 <option>1-2x/Week</option>
                                                 <option>3-4x/Week</option>
                                                 <option>Daily</option>
                                             </select>
-                                            <label for="hbp" class="label-area-select">Freq. daytime fatigue</label> 
+                                            <label for="hbp" class="label-area-select">Frequency of daytime fatigue</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
                                         <div>
                                             <select class="form-control mb-40" id="obs"  name="obs" required>
-                                                <option value="" disabled selected>Freq. observed stop breathing</option>
+                                                <option value="" disabled selected>How often apneas have been observed</option>
                                                 <option>Never</option>
                                                 <option>1-2x/Month</option>
                                                 <option>1-2x/Week</option>
                                                 <option>3-4x/Week</option>
                                                 <option>Daily</option>
                                             </select>
-                                            <label for="hbp" class="label-area-select">Freq. observed stop breathing</label> 
+                                            <label for="hbp" class="label-area-select">How often apneas have been observed</label> 
                                         </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -247,7 +249,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control mb-40" id="nc" name="nc" required>
-                                        <label for="nc" class="label-area">Neck Circumference</label>
+                                        <label for="nc" class="label-area">Neck circumference</label>
                                         <label for="nc" class="units-area2">cm</label>
                                     </div>
                                 </div>
@@ -259,7 +261,7 @@
                                   
                                         <button class="btn uza-btn btn-3 mt-15" onclick="requestScore()" data-toggle="modal" data-target="#searchModal">Compute Score</button>
                                         <button class="btn uza-btn btn-3 mt-15" onclick="clearForm()">Clear</button>
-                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()">Test Case</button>
+                                        <button class="btn uza-btn btn-3 mt-15" onclick="loadProfile()" data-toggle="tooltip" data-placement="Top" title="Test case individual diagnosed with OSA. The individual had AHI (Apnea–hypopnea index) of 7.1 and suffered from daily daytime fatigue">Test Case</button>
                                         
                                         <!-- <h5 id="scoreResult"></h5> -->
                                     </div>
@@ -281,7 +283,7 @@
 
                     </div>
                 </div>
-        </div>
+       
     </section>
     <!-- ***** Contact Area End ***** -->
 
@@ -308,9 +310,26 @@
                             <input type="search" id="resNOSAS" class="form-control" placeholder="" disabled>
 
                             <!-- <button type="submit" data-dismiss="modal">Close</button> -->
-
+                            <div class='my-legend'>                
+                                <div class='legend-scale'> 
+                                    <div class='legend-title'>OxyDosa Legend</div>                            
+                                    <ul class='legend-labels' padding-right="30px">
+                                        <li><span style='background:#EBB32C;'></span>OSA</li>
+                                        <li><span style='background:#2DB680;'></span>No OSA</li>
+                                    </ul> 
+                                </div>                     
+                            </div>
+                            <div class='my-legend'>                
+                                    <div class='legend-scale'> 
+                                        <div class='legend-title'>STOP-BANG\NoSAS Legend</div>                            
+                                        <ul class='legend-labels' padding-right="30px">
+                                            <li><span style='background:#DF1D5A;'></span>High risk OSA</li>
+                                            <li><span style='background:#EBB32C;'></span>Intermediate risk OSA</li>
+                                            <li><span style='background:#35C4F0;'></span>Low risk OSA</li>                                
+                                        </ul> 
+                                    </div>                     
+                            </div>
                         </form>
-                        
                     </div>
                 </div>
             </div>
