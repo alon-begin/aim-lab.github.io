@@ -56,13 +56,16 @@
                                 <li><a href="./team.html">Team</a></li>
                                 <li><a href="#">Research</a>
                                     <ul class="dropdown">
-                                        <li><a href="./ethics.html">Ethics</a></li>
-                                        <li><a href="./research.html">Topics</a></li>
-                                        <li><a href="./patents.html">Patents</a></li>
+                                        <li><a href="./research.html">Topics</a></li>                                        
                                         <li><a href="./publications.html">Publications</a></li>
+                                        <li><a href="./patents.html">Patents</a></li>                              
                                     </ul>
                                 </li>
-                                <li><a href="./positions.html">Positions</a></li>
+                                <li><a href="./positions.html">Positions</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./ethics.html">Ethics</a></li> 
+                                    </ul>
+                                </li>
                                 <li><a href="./software.html">Software</a>
                                     <ul class="dropdown">
                                         <li class="current-item"><a href="./oxydosa.html">OxyDOSA</a></li>
@@ -93,7 +96,7 @@
                         <h2 class="title">OxyDOSA App</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
                                 <li class="breadcrumb-item" aria-current="page">Software</li>
                                 <li class="breadcrumb-item active" aria-current="page">OxyDOSA App</li>
                             </ol>
@@ -123,7 +126,7 @@
                             population sample of 887 individuals is provided bellow.</br></p>                           
                             <div class="disclaimer">
                             <p2>The information on this page is for general informational purposes only and is not medical advice or a substitute for professional medical advice. 
-                                For full terms and conditions of use, please see  <a href="./docs/AIMLab.MedicalDisclaimer.pdf" style="color:#1583e9">here.</br></br></a></p2>
+                                For full terms and conditions of use, please see  <a href="./docs/AIMLab.MedicalDisclaimer.pdf" style="color:#1583e9">here.</a></p2>
                             </div>
                             <h5>Fill out the form below to obtain the OxyDOSA score</h5>
                         </div>
@@ -474,8 +477,8 @@
                     var stopbang = JSON.parse(resultJSON['STOPBANG']);
                     var nosas = JSON.parse(resultJSON['NOSAS']);
 
-                    document.getElementById("resOXYDOSA").value = "Predicted OSA with probability of "+ (oxydosa[1]*100).toPrecision(4)+"%";
-                    document.getElementById("resLRSB").value = "Predicted OSA with probability of "+ (lrsb[1]*100).toPrecision(4)+"%";
+                    document.getElementById("resOXYDOSA").value = "Predicted OSA with probability of "+ (oxydosa[1]*100).toPrecision(3)+"%";
+                    document.getElementById("resLRSB").value = "Predicted OSA with probability of "+ (lrsb[1]*100).toPrecision(3)+"%";
                     document.getElementById("resSTOPBANG").value = "Score:  " + stopbang[2]+"/8";
                     document.getElementById("resNOSAS").value = "Score:  "+ nosas[2]+"/17"; 
 
