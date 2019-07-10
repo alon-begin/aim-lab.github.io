@@ -477,8 +477,8 @@
                     var stopbang = JSON.parse(resultJSON['STOPBANG']);
                     var nosas = JSON.parse(resultJSON['NOSAS']);
 
-                    document.getElementById("resOXYDOSA").value = "Predicted OSA with probability of "+ (oxydosa[1]*100).toPrecision(3)+"%";
-                    document.getElementById("resLRSB").value = "Predicted OSA with probability of "+ (lrsb[1]*100).toPrecision(3)+"%";
+                    document.getElementById("resOXYDOSA").value = "Predicted probability of OSA: "+ (oxydosa[1]*100).toPrecision(3)+"%";
+                    document.getElementById("resLRSB").value = "Predicted probability of OSA: "+ (lrsb[1]*100).toPrecision(3)+"%";
                     document.getElementById("resSTOPBANG").value = "Score:  " + stopbang[2]+"/8";
                     document.getElementById("resNOSAS").value = "Score:  "+ nosas[2]+"/17"; 
 
