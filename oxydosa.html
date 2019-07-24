@@ -337,8 +337,10 @@
                                         </div>                     
                                 </div>
                             </div>
-                           
-                            <canvas id="canvas" style="display: block;width: 400px;height: 300px;margin-top: 30px"></canvas>
+                            <div class="chart-container">
+                                <canvas id="myCanvas"></canvas>
+                            </div>
+                            
                             
                         </form>
                     </div>
@@ -385,7 +387,7 @@
 
         document.getElementById("oxydosa_form").addEventListener("submit", requestScore);   
 
-        var barChartData = [];
+        var myChart;
 
         function buildChart(_data){
 
@@ -406,13 +408,17 @@
             };
 
             
-            
-            var ctx = document.getElementById('canvas').getContext('2d');
-            window.myBar = new Chart(ctx, {
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            var ctx = document.getElementById('myCanvas').getContext('2d');
+            myChart = new Chart(ctx, {
                 type: 'bar',
                 data: barChartData,
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     legend: {
                         display: false,
                         position: 'top',
@@ -423,6 +429,7 @@
                     }
                 }
             });
+
            
         }
 
@@ -458,6 +465,7 @@
             document.getElementById("gender").selectedIndex = 1; //SB_SCORE_GENDER
             document.getElementById("nc").value = 30.8; //SB_RAW_NECK_CIRC 
 
+           
             event.preventDefault(); 
         }
 
@@ -487,7 +495,6 @@
             document.getElementById("resSTOPBANG").style.backgroundColor = '#FFFFFF'; // blue 	
             document.getElementById("resNOSAS").style.backgroundColor = '#FFFFFF';
          
-
         }
                 
         function requestScore(){
