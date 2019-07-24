@@ -1,35 +1,79 @@
+<!doctype html>
 
- <link rel="stylesheet" href="test.css">
+<html lang="en">
+<head>
+        <title>Bar Chart</title>
+        <script src="Chart.min.js"></script>
+        <script src="utils.js"></script>
+        <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        </style>
 
-<form class="go-right">
-<h2>To Right</h2>
-<div>
-    <input id="name" name="name" type="text" required>
-    <label for="name">Your Name</label>
-</div>
-<div>
-    <input id="phone" name="phone" type="tel" required>
-    <label for="phone">Primary Phone</label>
-</div>
-<div>
-    <textarea id="message" name="phone" required></textarea>
-    <label for="message">Message</label>
-</div>
-</form>
+</head>
+
+<body>
+    <div id="container" style="width: 75%;">
+            <canvas id="canvas"></canvas>
+    </div>
+  
+    <script>
+        var FEATURES = ['MsPO2', 'Spo2Nadir', 'T90', 'ODI', 'Snoring', 'Fatigue', 'OBS', 'HBP', 'BMI', 'Age', 'Gender', 'NC'];
+        var color = Chart.helpers.color;
+        var barChartData = {
+            labels: ['MsPO2', 'Spo2Nadir', 'T90', 'ODI', 'Snoring', 'Fatigue', 'OBS', 'HBP', 'BMI', 'Age', 'Gender', 'NC'],
+            datasets: [{
+                label: 'Feature 1',
+                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.red,
+                borderWidth: 1,
+                data: [
+                    Math.abs(0.5),
+                    Math.abs(0.8),
+                    Math.abs(0.25),
+                    Math.abs(0.12),
+                    Math.abs(0.54),
+                    Math.abs(0.6),
+                    Math.abs(0.75),
+                    Math.abs(0.85),
+                    Math.abs(0.23),
+                    Math.abs(0.15),
+                    Math.abs(0.42),
+                    Math.abs(0.86),
+                ]
+            }]
+
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Normalized Feature Importance'
+                    }
+                }
+            });
+
+        };
+
+    
+
+       
+
+    </script>
+</body>
+</html>
 
 
-<form class="go">
-<h2>To Right</h2>
-<div>
-    <input id="name" name="name" type="text" required>
-    <label for="name">Your Name</label>
-</div>
-<div>
-    <input id="phone" name="phone" type="tel" required>
-    <label for="phone">Primary Phone</label>
-</div>
-<div>
-    <textarea id="message" name="phone" required></textarea>
-    <label for="message">Message</label>
-</div>
-</form>
+
