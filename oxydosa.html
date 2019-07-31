@@ -389,21 +389,23 @@
 
         var myChart;
 
+        
+
         function buildChart(_data){
 
             var FEATURES = ['The mean oxygen saturation', 'Lowest value of oxygen saturation', 'The proportion of time spent with SpO2<90%', 'The 3% oxygen desaturation index', 'Snoring Level', 'Day Time Fatigue', 'OBS', 'High Blood Pressure', 'BMI', 'Age', 'Gender', 'Neck Circ.'];
             var color = Chart.helpers.color;
             barChartData = {
-                labels: ['MSpO2', 'SpO2 Nadir', 'T90', 'ODI', 'Snoring', 'Day Fatigue', 'OBS', 'HBP', 'BMI', 'Age', 'Gender', 'Neck Circ.'],
+                labels: Object.keys(_data),
+                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                borderColor: window.chartColors.red,
+                borderWidth: 1,
                 datasets: [{
-                    label: [],
-                    backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-                    borderColor: window.chartColors.red,
-                    borderWidth: 1,
-                    data: _data.map(function(each_element){
+                    label: ['MSpO2', 'SpO2 Nadir', 'T90', 'ODI', 'Snoring', 'Day Fatigue', 'OBS', 'HBP', 'BMI', 'Age', 'Gender', 'Neck Circ.'],
+                    data: Object.values(_data).map(function(each_element){
                         return Number(each_element.toFixed(4));
-                    })}],
-                    scaleShowLabels: false,
+                    })}],                
+                scaleShowLabels: false,
 
             };
 
@@ -414,7 +416,7 @@
 
             var ctx = document.getElementById('myCanvas').getContext('2d');
             myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'horizontalBar',
                 data: barChartData,
                 options: {
                     responsive: true,
@@ -553,8 +555,8 @@
                     buildChart(stdf);
                 }
             };
-            //xhttp.open("POST", "http://127.0.0.1:5000", true);
-            xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
+            xhttp.open("POST", "http://127.0.0.1:5000", true);
+            //xhttp.open("POST", "https://aimlabmanager.pythonanywhere.com/", true);
 
    
 
