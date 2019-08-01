@@ -398,7 +398,10 @@
 			var c = v < 0 ? '#2DB680':'#EBB32C';
 
 			return c;
-		}
+        }
+        
+
+       
 
         function buildChart(_data){
 
@@ -417,7 +420,8 @@
                 datasets: [{
 				label: 'Features driving model to predict OSA',
                 //labels: Object.keys(_data).filter(function(key){return _data[key] >= 0}),
-				backgroundColor: colorize.bind(null, false),
+                //backgroundColor: colorize.bind(null, false),
+                backgroundColor: '#EBB32C',
                 data: Object.values(_data1).map(function(each_element){return Number(each_element.toFixed(4));})
                 //data: Object.values(_data).filter(function(v) {return v >= 0;}).map(function(each_element){return Number(each_element.toFixed(4));})
    
@@ -425,7 +429,8 @@
                
 				label: 'Features driving model to predict non-OSA',
                 //labels: Object.keys(_data).filter(function(key){return _data[key] < 0}),
-				backgroundColor: colorize.bind(null, false),
+                //backgroundColor: colorize.bind(null, false),
+                backgroundColor: '#2DB680',
                 data: Object.values(_data2).map(function(each_element){return Number(each_element.toFixed(4));})
                 //data: Object.values(_data).filter(function(v) {return v < 0;}).map(function(each_element){return Number(each_element.toFixed(4));})
     
@@ -461,7 +466,18 @@
                 title: {
                     display: true,
                     text: 'Standardized Feature Importance'
-                }              
+                },
+                scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+                },
+                tooltips: {
+						enabled: false,
+				}
 		    };
 
 
