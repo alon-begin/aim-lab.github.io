@@ -388,48 +388,88 @@
         document.getElementById("oxydosa_form").addEventListener("submit", requestScore);   
 
         var myChart;
+        var utils = Samples.utils;
 
-        
+        utils.srand(110); 
+
+
+        function colorize(opaque, ctx) {
+			var v = ctx.dataset.data[ctx.dataIndex];
+			var c = v < 0 ? '#2DB680':'#EBB32C';
+
+			return c;
+		}
 
         function buildChart(_data){
 
+           
             var FEATURES = ['The mean oxygen saturation', 'Lowest value of oxygen saturation', 'The proportion of time spent with SpO2<90%', 'The 3% oxygen desaturation index', 'Snoring Level', 'Day Time Fatigue', 'OBS', 'High Blood Pressure', 'BMI', 'Age', 'Gender', 'Neck Circ.'];
             var color = Chart.helpers.color;
+
+            var _data1 = Object.assign({}, _data);
+            Object.keys(_data1).forEach(function(key){if(_data1[key] < 0){_data1[key] = 0}})
+
+            var _data2 = Object.assign({}, _data);
+            Object.keys(_data2).forEach(function(key){if(_data2[key] >= 0){_data2[key] = 0}})
+
             barChartData = {
                 labels: Object.keys(_data),
-                backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-                borderColor: window.chartColors.red,
-                borderWidth: 1,
                 datasets: [{
-                    label: ['MSpO2', 'SpO2 Nadir', 'T90', 'ODI', 'Snoring', 'Day Fatigue', 'OBS', 'HBP', 'BMI', 'Age', 'Gender', 'Neck Circ.'],
-                    data: Object.values(_data).map(function(each_element){
-                        return Number(each_element.toFixed(4));
-                    })}],                
-                scaleShowLabels: false,
-
+				label: 'Features driving model to predict OSA',
+                //labels: Object.keys(_data).filter(function(key){return _data[key] >= 0}),
+				backgroundColor: colorize.bind(null, false),
+                data: Object.values(_data1).map(function(each_element){return Number(each_element.toFixed(4));})
+                //data: Object.values(_data).filter(function(v) {return v >= 0;}).map(function(each_element){return Number(each_element.toFixed(4));})
+   
+            }, {
+               
+				label: 'Features driving model to predict non-OSA',
+                //labels: Object.keys(_data).filter(function(key){return _data[key] < 0}),
+				backgroundColor: colorize.bind(null, false),
+                data: Object.values(_data2).map(function(each_element){return Number(each_element.toFixed(4));})
+                //data: Object.values(_data).filter(function(v) {return v < 0;}).map(function(each_element){return Number(each_element.toFixed(4));})
+    
+            }]
+                
             };
 
-            
+
+            //Object.keys(_data).forEach(function(key){if(_data[key] > 0){console.log(_data[key])}})
+
+
+
+
             if (myChart) {
                 myChart.destroy();
             }
+
+            
+            var options = {
+                responsive: true,
+                elements: {
+				rectangle: {
+					backgroundColor: colorize.bind(null, false),
+					borderColor: colorize.bind(null, true),
+					borderWidth: 3
+				}
+			    },
+                maintainAspectRatio: false,
+                legend: {
+                    display: true,
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Standardized Feature Importance'
+                }              
+		    };
+
 
             var ctx = document.getElementById('myCanvas').getContext('2d');
             myChart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: barChartData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Standardized Feature Importance'
-                    }
-                }
+                options: options
             });
 
            
