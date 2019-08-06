@@ -319,7 +319,7 @@
                             <div align="center">
                                 <div class='my-legend'>                
                                     <div class='legend-scale'> 
-                                        <div class='legend-title'>OxyDosa Legend</div>                            
+                                        <div class='legend-title'>OxyDOSA/LR-SB legend</div>                            
                                         <ul class='legend-labels' padding-right="30px">
                                             <li><span style='background:#EBB32C;'></span>OSA</li>
                                             <li><span style='background:#2DB680;'></span>No OSA</li>
@@ -409,6 +409,9 @@
             var FEATURES = ['The mean oxygen saturation', 'Lowest value of oxygen saturation', 'The proportion of time spent with SpO2<90%', 'The 3% oxygen desaturation index', 'Snoring Level', 'Day Time Fatigue', 'OBS', 'High Blood Pressure', 'BMI', 'Age', 'Gender', 'Neck Circ.'];
             var color = Chart.helpers.color;
 
+            _data_max = Math.max.apply(null, Object.values(_data));
+            _data_min = Math.min.apply(null, Object.values(_data));
+
             var _data1 = Object.assign({}, _data);
             Object.keys(_data1).forEach(function(key){if(_data1[key] < 0){_data1[key] = 0}})
 
@@ -450,6 +453,7 @@
 
             
             var options = {
+               
                 responsive: true,
                 elements: {
 				rectangle: {
@@ -465,11 +469,18 @@
                 },
                 title: {
                     display: true,
-                    text: 'Standardized Feature Importance'
+                    text: 'Standardized Feature Importance for OxyDOSA',
+                    fontSize: 15,
+                    fontStyle: 'normal',
+                    
                 },
                 scales: {
 						xAxes: [{
 							stacked: true,
+                            ticks: {
+                                suggestedMax: Math.abs(_data_max) > Math.abs(_data_min) ? Math.abs(_data_max) : Math.abs(_data_min),
+                                suggestedMin: Math.abs(_data_max) > Math.abs(_data_min) ? -Math.abs(_data_max) : -Math.abs(_data_min),                          
+                            }
 						}],
 						yAxes: [{
 							stacked: true
@@ -480,7 +491,8 @@
 				}
 		    };
 
-
+            Chart.defaults.global.defaultFontSize = 13;
+            Chart.defaults.global.defaultFontFamily = "Aileron";
             var ctx = document.getElementById('myCanvas').getContext('2d');
             myChart = new Chart(ctx, {
                 type: 'horizontalBar',
