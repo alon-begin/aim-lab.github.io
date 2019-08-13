@@ -507,6 +507,7 @@ input:focus {
       color: #303030;
       cursor: pointer; }
 
+      
 .classy-nav-container {
   background-color: transparent;
   padding: 0; }
@@ -659,11 +660,12 @@ input:focus {
   .get-a-quote {
     margin: 30px 15px !important; } }
 
-/* :: 8.0 Hero CSS */
+  /* :: 8.0 Hero CSS */
 .welcome-slides {
   position: relative;
   z-index: 1;
-  overflow: hidden; }
+  overflow: hidden;
+  }
 
 .single-welcome-slide {
   position: relative;
@@ -720,7 +722,7 @@ input:focus {
         color: #1583e9; }
     .single-welcome-slide .welcome-text h5 {
       font-size: 22px;
-      color: #a6a6a6;
+      color: #ffffff;
       margin-bottom: 60px;
       display: block; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -734,6 +736,117 @@ input:focus {
   @media only screen and (max-width: 767px) {
     .single-welcome-slide .welcome-thumbnail {
       margin-top: -120px; } }
+
+
+
+.headshot {
+  height: 120px;
+  width: 120px;
+  border:2px solid #ffffff;
+  border-radius: 120px;
+  display: inline-block;
+  }
+
+.instructor {
+  display: inline-block;
+  padding: 5px 10px 5px 0px;
+  vertical-align: top;
+}
+      
+.welcome-slides2 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  }
+
+.welcome-thumbnail2 {
+  color: #ffffff;
+  border-left: 2px solid;
+  padding-left: 2.5rem; } 
+
+.welcome-thumbnail2 h5 {
+  color: #ffffff;
+   } 
+.welcome-thumbnail2 h2 {
+color: #ffffff;
+  } 
+
+
+.single-welcome-slide2 {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 900px;
+  background-color: #486c7f; 
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #178996 51%, #2cb6e842 75%);}
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .single-welcome-slide2 {
+      height: 750px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-welcome-slide2 {
+      height: 600px; } }
+  @media only screen and (max-width: 767px) {
+    .single-welcome-slide2 {
+      height: 900px; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .single-welcome-slid2e {
+      height: 1000px; } }
+  .single-welcome-slide2 .background-curve2 {
+    position: absolute;
+    width: 70%;
+    top: 0;
+    height: 100%;
+    right: 0;
+    z-index: -1; }
+    .single-welcome-slide2 .background-curve2 img {
+      width: 100%;
+      height: auto;
+      background-repeat: no-repeat; }
+  .single-welcome-slide2 .welcome-text2 {
+    position: relative;
+    z-index: 1; }
+    @media only screen and (max-width: 767px) {
+      .single-welcome-slide2 .welcome-text2 {
+        padding-top: 50px; } }
+    .single-welcome-slide2 .welcome-text2 h2 {
+      font-size: 72px;
+      display: block;
+      margin-bottom: 30px; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .single-welcome-slide2 .welcome-text2 h2 {
+          font-size: 48px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .single-welcome-slide2 .welcome-text2 h2 {
+          font-size: 42px; } }
+      @media only screen and (max-width: 767px) {
+        .single-welcome-slide2 .welcome-text2 h2 {
+          font-size: 36px; } }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .single-welcome-slide2 .welcome-text2 h2 {
+          font-size: 42px; } }
+      .single-welcome-slide2 .welcome-text2 h2 span {
+        color: #ffffff; }
+    .single-welcome-slide2 .welcome-text2 h5 {
+      font-size: 22px;
+      color: #ffffff;
+      margin-bottom: 60px;
+      display: block; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .single-welcome-slide2 .welcome-text2 h5 {
+          font-size: 18px;
+          margin-bottom: 40px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .single-welcome-slide2 .welcome-text2 h5 {
+          font-size: 14px;
+          margin-bottom: 40px; } }
+  @media only screen and (max-width: 767px) {
+    .single-welcome-slide2 .welcome-thumbnail2 {
+      margin-top: -120px;
+      border-left: 2px solid;
+      padding-left: 2.5rem; } }
+
+
+/*/////////
 
 /* :: 09.0 Portfolio CSS */
 .uza-portfolio-area {
