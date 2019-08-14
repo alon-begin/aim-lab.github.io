@@ -267,6 +267,7 @@ input:focus {
   padding-top: 80px;
   padding-bottom: 0; }
 
+
 /* :: 3.0 Preloader CSS */
 #preloader {
   position: fixed;
@@ -742,15 +743,23 @@ input:focus {
 .headshot {
   height: 120px;
   width: 120px;
-  border:2px solid #ffffff;
-  border-radius: 120px;
+  margin: 0px;
+  border:4px solid #ffffff;
+  border-radius: 180px;
+  display: inline-block;}
+
+.headshot2{
+  height: 120px;
+  width: 120px;
+  border:2px solid #a1a1a1;
+  border-radius: 180px;
   display: inline-block;
-  }
+}
 
 .instructor {
   display: inline-block;
-  padding: 5px 10px 5px 0px;
-  vertical-align: top;
+  padding: 20px 10px 5px 0px;
+  vertical-align: bottom;
 }
       
 .welcome-slides2 {
@@ -778,7 +787,8 @@ color: #ffffff;
   width: 100%;
   height: 900px;
   background-color: #486c7f; 
-  background-image: linear-gradient(141deg, #9fb8ad 0%, #178996 51%, #2cb6e842 75%);}
+  /* background-image: linear-gradient(141deg, #e7f2fd 0%, #178996 51%, #2fbcf042 75%);} */
+  background-image: linear-gradient(149deg, rgba(203,211,230,1) 0%, rgba(102,157,193,1) 33%, rgba(23,137,150,1) 72%);}
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .single-welcome-slide2 {
       height: 750px; } }
@@ -828,7 +838,7 @@ color: #ffffff;
         color: #ffffff; }
     .single-welcome-slide2 .welcome-text2 h5 {
       font-size: 22px;
-      color: #ffffff;
+      color: #303030;
       margin-bottom: 60px;
       display: block; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
