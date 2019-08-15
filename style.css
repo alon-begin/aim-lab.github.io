@@ -851,6 +851,7 @@ color: #ffffff;
           margin-bottom: 40px; } }
   @media only screen and (max-width: 767px) {
     .single-welcome-slide2 .welcome-thumbnail2 {
+      
       margin-top: -120px;
       border-left: 2px solid;
       padding-left: 2.5rem; } }
@@ -2431,6 +2432,23 @@ color: #ffffff;
   height: 300px;
   margin-top: 30px;
 }
+
+ .logo li{
+  display: inline-block;
+  vertical-align: middle
+ }
+ .logo img{
+  width: 60px;
+  height: 60px;
+ }
+ @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .logo img {
+    padding: 30px; } }
+ @media only screen and (max-width: 767px) {
+  .logo img {
+    width: 30px;
+    height: 30px; } }
+
 
 
 /* .uza-contact-form {
