@@ -124,18 +124,18 @@
 
         <!-- Portfolio Menu -->
         <div class="portfolio-menu text-center mb-80">
-            <button class="btn active" data-filter="*">All Teammates</button>
-            <button class="btn" data-filter=".ux-ui-design">Researchers</button>
-            <button class="btn" data-filter=".alumni">Alumni</button>
-            <button class="btn" data-filter=".market-analytics">Graduate Students</button>
-            <button class="btn" data-filter=".marketing-social">Lab Engineers</button>
+            <button class="btn active" id="filter"  data-filter=".researchers, .graduates, .engineers" autofocus>All Teammates</button>
+            <button class="btn" data-filter=".researchers">Researchers</button>
+            <button class="btn" data-filter=".alumni" onclick="showalumni()">Alumni</button>
+            <button class="btn" data-filter=".graduates">Graduate Students</button>
+            <button class="btn" data-filter=".engineers">Lab Engineers</button>
         </div>
 
         <div class="container-fluid">
             <div class="row uza-portfolio">
 
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item ux-ui-design">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item researchers">
                     <div class="single-portfolio-slide">
                         <img src="./img/team/Joachim Behar.jpg" alt="">
                         <!-- Overlay Effect -->
@@ -152,7 +152,7 @@
                 </div>
 
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item marketing-social">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item graduates">
                     <div class="single-portfolio-slide">
                         <img src="./img/team/Ronen Barski.jpg" alt="">
                         <!-- Overlay Effect -->
@@ -169,7 +169,7 @@
                 </div>
                 
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item market-analytics">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item graduates">
                         <div class="single-portfolio-slide">
                             <img src="./img/team/Armand Chocron.jpg" alt="">
                             <!-- Overlay Effect -->
@@ -185,9 +185,8 @@
                         </div>
                 </div>
 
-
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item market-analytics">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item graduates">
                     <div class="single-portfolio-slide">
                         <img src="./img/team/Kevin Kotzen.jpg" alt="">
                         <!-- Overlay Effect -->
@@ -204,7 +203,7 @@
                 </div>
 
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item market-analytics">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item graduates">
                     <div class="single-portfolio-slide">
                         <img src="./img/team/Zacharie Sroussi.jpg" alt="">
                         <!-- Overlay Effect -->
@@ -221,7 +220,7 @@
                 </div>
 
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item market-analytics">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item graduates">
                     <div class="single-portfolio-slide">
                         <img src="./img/team/Raphael Azeroual.jpg" alt="">
                         <!-- Overlay Effect -->
@@ -237,42 +236,44 @@
                     </div>
                 </div>
 
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item alumni">
-                    <div class="single-portfolio-slide">
-                        <img src="./img/team/Aviv Rosenberg.jpg" alt="">
-                        <!-- Overlay Effect -->
-                        <div class="overlay-effect">
-                            <h4>Aviv Rosenberg</h4>
-                            <p>MSc Biomedical Engineering, Technion</p>
-                            <p>BSc Computer Science, Technion</p>
-                        </div>
-                        <!-- View More -->
-                        <div class="view-more-btn">
-                            <a href="./contact.html"><i class="arrow_right"></i></a>
+                <div id="alumni">
+                    <!-- Single Portfolio Item -->
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item alumni">
+                        <div class="single-portfolio-slide">
+                            <img src="./img/team/Aviv Rosenberg.jpg" alt="">
+                            <!-- Overlay Effect -->
+                            <div class="overlay-effect">
+                                <h4>Aviv Rosenberg</h4>
+                                <p>MSc Biomedical Engineering, Technion</p>
+                                <p>BSc Computer Science, Technion</p>
+                            </div>
+                            <!-- View More -->
+                            <div class="view-more-btn">
+                                <a href="./contact.html"><i class="arrow_right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item alumni">
-                    <div class="single-portfolio-slide">
-                        <img src="./img/team/Vadim Gliner.jpg" alt="">
-                        <!-- Overlay Effect -->
-                        <div class="overlay-effect">
-                            <h4>Vadim Gliner</h4>
-                            <p>MSc Biomedical Engineering, Technion</p>
-                            <p>BSc Electrical Engineering, Technion</p>
-                        </div>
-                        <!-- View More -->
-                        <div class="view-more-btn">
-                            <a href="./contact.html"><i class="arrow_right"></i></a>
+                    <!-- Single Portfolio Item -->
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item alumni">
+                        <div class="single-portfolio-slide">
+                            <img src="./img/team/Vadim Gliner.jpg" alt="">
+                            <!-- Overlay Effect -->
+                            <div class="overlay-effect">
+                                <h4>Vadim Gliner</h4>
+                                <p>MSc Biomedical Engineering, Technion</p>
+                                <p>BSc Electrical Engineering, Technion</p>
+                            </div>
+                            <!-- View More -->
+                            <div class="view-more-btn">
+                                <a href="./contact.html"><i class="arrow_right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>    
+                </div>  
                 
                 <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item marketing-social">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 single-portfolio-item engineers">
                     <div class="single-portfolio-slide">
                         <img src="./img/team/Alexandra Alexandrovich.jpg" alt="">
                         <!-- Overlay Effect -->
@@ -307,6 +308,8 @@
     </footer>
 <!-- ***** Footer Area End ***** -->
 
+    
+    
     <!-- ******* All JS Files ******* -->
     <!-- jQuery js -->
     <script src="js/jquery.min.js"></script>
@@ -318,6 +321,15 @@
     <script src="js/uza.bundle.js"></script>
     <!-- Active js -->
     <script src="js/default-assets/active.js"></script>
+    <script>
+        $(function(){
+           $("#alumni").hide()
+        });
+
+        function showalumni(){
+            $("#alumni").show();
+        }
+     </script>
 
 </body>
 
