@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <!-- ***** Top Search Area Start ***** -->
+    <!-- ***** Student Login Start ***** -->
     <div class="top-search-area">
         <!-- Search Modal -->
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -36,7 +36,7 @@
                         <!-- Close Button -->
                         <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
                         <!-- Form -->
-                        <form action="./mlh-students.html" method="post">
+                        <form action="./mlh-students.html" method="get">
                             <input class="form-control" placeholder="Enter username">
                             <input class="form-control" type="password" id="myInput" placeholder="Enter password"><br><br>
                             <button type="submit">Login</button>
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <!-- ***** Top Search Area End ***** -->
+    <!-- ***** TStudent Login End ***** -->
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area">
@@ -444,20 +444,7 @@
 
     <script type="text/javascript">
 
-        function myFunction() {
-        var x = document.getElementById("myInput");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-        }
-      
-
-        function _login(){
-            $('#searchModal').modal('toggle')
-
-        }
+     
 
     </script>
 
