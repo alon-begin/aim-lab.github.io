@@ -26,6 +26,28 @@
         </div>
     </div>
 
+    <!-- ***** Top Search Area Start ***** -->
+    <div class="top-search-area">
+        <!-- Search Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Close Button -->
+                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <!-- Form -->
+                        <form action="./mlh-students.html" method="post">
+                            <input class="form-control" placeholder="Enter username">
+                            <input class="form-control" type="password" id="myInput" placeholder="Enter password"><br><br>
+                            <button type="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Top Search Area End ***** -->
+
     <!-- ***** Header Area Start ***** -->
     <header class="header-area">
             <!-- Main Header Start -->
@@ -119,8 +141,7 @@
                                         </div>
 
                                         <a href="./docs/ML-01-CC-0001.D04 ML in Healthcare.pdf" target="_blank" class="btn uza-btn btn-4" data-animation="fadeInUp" data-delay="700ms">Syllabus</a>
-                                        <a href="#course_info" class="btn uza-btn btn-4 ml-2" data-animation="fadeInUp" data-delay="700ms">Read More &#8681</a>
-                                        
+                                        <a href="#" class="btn uza-btn btn-3 ml-2" data-animation="fadeInUp" data-delay="700ms" data-toggle="modal" data-target="#searchModal">Login</a>
                                     </div>
                                 </div>
                                                             
@@ -189,6 +210,9 @@
                                     </li>
                                     <li class="nav-item">
                                             <a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"> LOGISTICS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="tab3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"> MLH Challenge</a>
                                     </li>                        
                                 </ul>
                             </div>
@@ -202,8 +226,6 @@
                                             <p>In this course you will learn about aspects of information processing including data preprocessing, visualization, regression, dimensionality reduction (PCA, ICA), feature selection, classification (LR, SVM, NN) and their usage for decision support in the context of healthcare. The course aims to provide an overview of computer tools and machine learning techniques for dealing with medical datasets (time series and images). The course is practical with computer based tutorials and assignments. The necessary theory will be covered.</p>
                                         </div>
                                     </div>  
-                
-    
                                     <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
                                         <!-- Tab Content Text -->
                                         <div class="tab-content-text">
@@ -250,7 +272,12 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab3">
+                                        <!-- Tab Content Text -->
+                                        <div class="tab-content-text">
+                                            <p>The Technion-MLH Challenge, denoted ‘Challenge’ in the following, aims to stimulate rapid progress on an unsolved question of practical clinical significance and that may benefit improving healthcare outcome for the citizen of Israel and globally. For that purpose, data will be provided to the students at the beginning of the course together with the medical question of interest. The dataset consists of a collection of variables and/or physiological signals that need to be analyzed toward a defined goal. The students are provided with a subset of the data, the “training set” that will be used by each team to develop their algorithm and a “test set” that will not be provided to the team and which will be used to analyze the student’s algorithm performance. The data and question we ask are novel and you will be the first to research it!</p>
+                                        </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -414,6 +441,25 @@
     <script src="js/uza.bundle.js"></script>
     <!-- Active js -->
     <script src="js/default-assets/active.js"></script>
+
+    <script type="text/javascript">
+
+        function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        }
+      
+
+        function _login(){
+            $('#searchModal').modal('toggle')
+
+        }
+
+    </script>
 
 </body>
 
