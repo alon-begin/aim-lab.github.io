@@ -783,6 +783,83 @@ color: #d6a433;
   } 
 
 
+
+.single-welcome-slide3 {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 300px;
+  /* background-color: #3a799a; */
+  /* background-image: linear-gradient(141deg, #e7f2fd 0%, #178996 51%, #2fbcf042 75%);} */
+  background-image: linear-gradient(149deg, rgba(69,125,150,1) 0%, rgba(24,61,99,0.9808298319327731) 100%);}
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .single-welcome-slide3 {
+      height: 750px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-welcome-slide3 {
+      height: 600px; } }
+  @media only screen and (max-width: 767px) {
+    .single-welcome-slide3 {
+      height: 900px; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .single-welcome-slide3 {
+      height: 1000px; } }
+.single-welcome-slide3 .background-curve3 {
+  position: absolute;
+  width: 70%;
+  top: 0;
+  height: 100%;
+  right: 0;
+  z-index: -1; }
+.single-welcome-slide3 .background-curve3 img {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat; }
+.single-welcome-slide3 .welcome-text3 {
+  position: absolute;
+  z-index: 1; }
+  @media only screen and (max-width: 767px) {
+    .single-welcome-slide3 .welcome-text3 {
+      padding-top: 50px; } }
+.single-welcome-slide3 .welcome-text3 h2 {
+  font-size: 72px;
+  display: block;
+  margin-bottom: 30px; }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .single-welcome-slide3 .welcome-text3 h2 {
+      font-size: 48px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-welcome-slide3 .welcome-text3 h2 {
+      font-size: 42px; } }
+  @media only screen and (max-width: 767px) {
+    .single-welcome-slide3.welcome-text3 h2 {
+      font-size: 36px; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .single-welcome-slide3 .welcome-text3 h2 {
+      font-size: 42px; } }
+.single-welcome-slide3 .welcome-text3 h2 span {
+  color: #ffffff; }
+.single-welcome-slide3 .welcome-text3 h5 {
+  font-size: 22px;
+  color: #303030;
+  margin-bottom: 60px;
+  display: block; }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .single-welcome-slide3 .welcome-text3 h5 {
+      font-size: 18px;
+      margin-bottom: 40px; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-welcome-slide3 .welcome-text3 h5 {
+      font-size: 14px;
+      margin-bottom: 40px; } }
+  @media only screen and (max-width: 767px) {
+  .single-welcome-slide3 .welcome-thumbnail3 {
+      
+      margin-top: -120px;
+      border-left: 2px solid;
+      padding-left: 2.5rem; } }
+
+
 .single-welcome-slide2 {
   position: relative;
   z-index: 2;
@@ -801,8 +878,9 @@ color: #d6a433;
     .single-welcome-slide2 {
       height: 900px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .single-welcome-slid2e {
+    .single-welcome-slide2 {
       height: 1000px; } }
+
   .single-welcome-slide2 .background-curve2 {
     position: absolute;
     width: 70%;
@@ -1348,7 +1426,8 @@ color: #d6a433;
 
 .uza-about-us-area {
   position: relative;
-  z-index: 1; }
+  z-index: 1; 
+  margin-bottom: 60px}
   .uza-about-us-area .about-bg-pattern {
     position: absolute;
     width: 40%;
@@ -2451,7 +2530,23 @@ color: #d6a433;
     width: 30px;
     height: 30px; } }
 
+.pdf-logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 4px;
+  width: 35px;
+  height: 35px;
+  background: url(./img/icons/pdf.svg);
+}
 
+.zip-logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 4px;
+  width: 35px;
+  height: 35px;
+  background: url(./img/icons/zip.svg);
+}
 
 /* .uza-contact-form {
   position: relative;
